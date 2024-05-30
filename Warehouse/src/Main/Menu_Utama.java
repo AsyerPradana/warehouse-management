@@ -4,11 +4,13 @@
  */
 package Main;
 
-import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import view.Form_Login;
+import view.Master_Pengguna;
 
 /**
  *
@@ -17,17 +19,13 @@ import java.util.ArrayList;
 public class Menu_Utama extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu_Utama
+     * Creates new form Menu_Utama1
      */
     public Menu_Utama(String Id, String Nama, String Level2) {
         initComponents();
-//        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         execute();
-    }
-
-    private Menu_Utama() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -39,102 +37,100 @@ public class Menu_Utama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        pn_navbar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        pn_sidebar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pn_menus = new javax.swing.JPanel();
+        pn_content = new javax.swing.JPanel();
+        pn_utama = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(35, 39, 47));
+        pn_navbar.setBackground(new java.awt.Color(35, 39, 47));
+        pn_navbar.setPreferredSize(new java.awt.Dimension(772, 70));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Welcome Admin");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("WELCOME ADMIN");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(262, 262, 262)
-                .addComponent(jLabel1)
+        javax.swing.GroupLayout pn_navbarLayout = new javax.swing.GroupLayout(pn_navbar);
+        pn_navbar.setLayout(pn_navbarLayout);
+        pn_navbarLayout.setHorizontalGroup(
+            pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_navbarLayout.createSequentialGroup()
+                .addContainerGap(302, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(281, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pn_navbarLayout.setVerticalGroup(
+            pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_navbarLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
         );
 
-        jLabel2.setText("Dashboard");
+        getContentPane().add(pn_navbar, java.awt.BorderLayout.PAGE_START);
 
-        jLabel3.setText("Barang");
+        pn_sidebar.setBackground(new java.awt.Color(35, 39, 47));
+        pn_sidebar.setPreferredSize(new java.awt.Dimension(250, 374));
 
-        jLabel4.setText("Lokasi");
+        jScrollPane1.setBorder(null);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addContainerGap(42, Short.MAX_VALUE))
+        pn_menus.setBackground(new java.awt.Color(35, 39, 47));
+        pn_menus.setLayout(new javax.swing.BoxLayout(pn_menus, javax.swing.BoxLayout.Y_AXIS));
+        jScrollPane1.setViewportView(pn_menus);
+
+        javax.swing.GroupLayout pn_sidebarLayout = new javax.swing.GroupLayout(pn_sidebar);
+        pn_sidebar.setLayout(pn_sidebarLayout);
+        pn_sidebarLayout.setHorizontalGroup(
+            pn_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addContainerGap(248, Short.MAX_VALUE))
+        pn_sidebarLayout.setVerticalGroup(
+            pn_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        getContentPane().add(pn_sidebar, java.awt.BorderLayout.LINE_START);
+
+        pn_content.setBackground(new java.awt.Color(63, 68, 77));
+
+        pn_utama.setBackground(new java.awt.Color(63, 68, 77));
+        pn_utama.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout pn_contentLayout = new javax.swing.GroupLayout(pn_content);
+        pn_content.setLayout(pn_contentLayout);
+        pn_contentLayout.setHorizontalGroup(
+            pn_contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_contentLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pn_contentLayout.setVerticalGroup(
+            pn_contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(pn_content, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setSize(new java.awt.Dimension(809, 577));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here
+        pn_utama.add(new content_bg());
+        pn_utama.repaint();
+        pn_utama.revalidate();
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -162,6 +158,7 @@ public class Menu_Utama extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Menu_Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -173,15 +170,62 @@ public class Menu_Utama extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel pn_content;
+    private javax.swing.JPanel pn_menus;
+    private javax.swing.JPanel pn_navbar;
+    private javax.swing.JPanel pn_sidebar;
+    private javax.swing.JPanel pn_utama;
     // End of variables declaration//GEN-END:variables
-    
+
     private void execute(){
+//        tempat icon
+        ImageIcon iconDashboard = new ImageIcon(getClass().getResource("/img/dashboard.png"));
+        ImageIcon iconProduk = new ImageIcon(getClass().getResource("/img/produk.png"));
+        ImageIcon iconLokasi = new ImageIcon(getClass().getResource("/img/lokasi.png"));
+        ImageIcon iconPengguna = new ImageIcon(getClass().getResource("/img/pengguna.png"));
+        ImageIcon iconReport = new ImageIcon(getClass().getResource("/img/report.png"));
+        ImageIcon iconHome = new ImageIcon(getClass().getResource("/img/home.png"));
+
+//        untuk submenu
+        MenuItem subProduk = new MenuItem(null, true, iconProduk, "Produk", null);
+        MenuItem subLokasi = new MenuItem(null, true, iconLokasi, "Lokasi", null);
+        MenuItem subPengguna = new MenuItem(null, true, iconPengguna, "Pengguna", (ActionEvent e) -> {
+            pn_utama.removeAll();
+            pn_utama.add(new Master_Pengguna());
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        });
+                
+
+//        Untuk menu 
+        MenuItem menuHome = new MenuItem(iconHome, false, null, "Home", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new content_bg());
+                pn_utama.repaint();
+                pn_utama.revalidate();     
+            }
+        });
+        MenuItem menuDashboard = new MenuItem(iconDashboard, false, null, "Dashboard", null,subProduk,subLokasi,subPengguna);
+        MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", null);
         
+//        MenuItem menuProduk = new MenuItem(iconProduk, false, null, "Produk",null);
+//        MenuItem menuLokasi = new MenuItem(iconLokasi, false, null, "Lokasi", null);
+//        MenuItem menuPengguna = new MenuItem(iconPengguna, false, null, "Pengguna", null);
+        addMenu(menuHome,menuDashboard, menuReport);
+//        addMenu(menuDashboard, menuProduk, menuLokasi, menuPengguna);
+
+    }
+    private void addMenu(MenuItem... menu){
+        for (MenuItem menu1 : menu) {
+            pn_menus.add(menu1);
+            ArrayList<MenuItem> subMenu = menu1.getSubMenu();
+            for(MenuItem m : subMenu){
+                addMenu(m);
+            }
+        }
+        pn_menus.revalidate();
     }
 }
