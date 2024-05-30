@@ -139,7 +139,7 @@ public class Form_Login extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Red"));
+        jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setText("Close");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

@@ -52,7 +52,7 @@ public class TableMod_Pengguna extends AbstractTableModel{
         fireTableRowsUpdated(index, index);
     }
     
-    public Model_Pengguna get_Data(int index){
+    public Model_Pengguna getData(int index){
         return list.get(index);
     }
     
@@ -61,30 +61,51 @@ public class TableMod_Pengguna extends AbstractTableModel{
         return list.size();
     }
     
+    private final String[] columnName = {"No", "ID", "Nama", "Username", "Password", "Telepon", "Alamat", "Level"};
+    
     @Override
     public int getColumnCount(){
-        return 6;
+        return columnName.length;
     }
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex){
-        switch (columnIndex){
+        if(columnIndex == 0){
+            return "    " + (rowIndex + 1);
+        }else{
+            switch (columnIndex - 1){
             case 0: return list.get(rowIndex).getId_pengguna();
             case 1: return list.get(rowIndex).getNama_pengguna();
             case 2: return list.get(rowIndex).getUsername();
-            case 3: return list.get(rowIndex).getLevel();
-
+            case 3: return list.get(rowIndex).getPassword();
+            case 4: return list.get(rowIndex).getTelp_pengguna();
+            case 5: return list.get(rowIndex).getAlamat_pengguna();
+            case 6: return list.get(rowIndex).getLevel();
             default: return null;
+            }
+        }
+        
+    }
+    
+    @Override
+    public String getColumnName(int column){
+        if(column == 0){
+            return "    " + columnName[column];
+        }else{
+            return columnName[column];
         }
     }
     
-    public String getColumnName(int column){
-        switch(column){
-            case 0: return "No id";
-            case 1: return "Total"; 
-            case 2: return "ID Pengguna";
-            case 3: return "Level";
-            default: return null;
-        }
-    }
+//    public String getColumnName(int column){
+//        switch(column){
+//            case 0: return "No id";
+//            case 1: return "Nama Pengguna"; 
+//            case 2: return "Username";
+//            case 3: return "Password";
+//            case 4: return "No Telepon";
+//            case 5: return "Alamat ";
+//            case 6: return "Level";
+//            default: return null;
+//        }
+//    }
 }
