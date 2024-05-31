@@ -56,19 +56,19 @@ public class Master_Produk extends javax.swing.JPanel {
         btn_batal1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        t_id = new javax.swing.JTextField();
+        t_id_produk = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        t_nama = new javax.swing.JTextField();
+        t_nama_produk = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        t_username = new javax.swing.JTextField();
+        t_jenis_produk = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        t_password = new javax.swing.JPasswordField();
+        t_deskripsi = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
-        t_telp = new javax.swing.JTextField();
+        t_jumlah_produk = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        t_alamat = new javax.swing.JTextField();
+        t_harga_produk = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        cbx_level = new javax.swing.JComboBox<>();
+        cbx_date = new com.toedter.calendar.JDateChooser();
 
         setPreferredSize(new java.awt.Dimension(573, 552));
         setLayout(new java.awt.CardLayout());
@@ -207,66 +207,61 @@ public class Master_Produk extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("ID");
 
-        t_id.addActionListener(new java.awt.event.ActionListener() {
+        t_id_produk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_idActionPerformed(evt);
+                t_id_produkActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Nama");
+        jLabel4.setText("Nama Produk");
 
-        t_nama.addActionListener(new java.awt.event.ActionListener() {
+        t_nama_produk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_namaActionPerformed(evt);
+                t_nama_produkActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Password");
+        jLabel5.setText("Deskripsi");
 
-        t_username.addActionListener(new java.awt.event.ActionListener() {
+        t_jenis_produk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_usernameActionPerformed(evt);
+                t_jenis_produkActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Username");
+        jLabel6.setText("Jenis Produk");
 
-        t_password.addActionListener(new java.awt.event.ActionListener() {
+        t_deskripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_passwordActionPerformed(evt);
+                t_deskripsiActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("No Telepon");
+        jLabel7.setText("Jumlah Produk");
 
-        t_telp.addActionListener(new java.awt.event.ActionListener() {
+        t_jumlah_produk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_telpActionPerformed(evt);
+                t_jumlah_produkActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setText("Alamat");
+        jLabel8.setText("Harga Produk");
 
-        t_alamat.addActionListener(new java.awt.event.ActionListener() {
+        t_harga_produk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_alamatActionPerformed(evt);
+                t_harga_produkActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setText("Level");
 
-        cbx_level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "* Pilih Akses Level *", "Owner", "Staff" }));
-        cbx_level.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbx_levelActionPerformed(evt);
-            }
-        });
+        cbx_date.setDateFormatString("yyyy,mm,dd");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -275,12 +270,12 @@ public class Master_Produk extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(t_id)
-                    .addComponent(t_nama)
-                    .addComponent(t_username)
-                    .addComponent(t_telp)
-                    .addComponent(t_alamat)
-                    .addComponent(cbx_level, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(t_id_produk)
+                    .addComponent(t_nama_produk)
+                    .addComponent(t_jenis_produk)
+                    .addComponent(t_jumlah_produk)
+                    .addComponent(t_harga_produk)
+                    .addComponent(t_deskripsi)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -289,9 +284,9 @@ public class Master_Produk extends javax.swing.JPanel {
                             .addComponent(jLabel5)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(t_password))
+                            .addComponent(jLabel9)
+                            .addComponent(cbx_date, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -299,32 +294,32 @@ public class Master_Produk extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(t_id_produk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(t_nama_produk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(t_jenis_produk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(t_deskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(t_jumlah_produk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(t_harga_produk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbx_level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 89, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbx_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 91, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout tambahDataLayout = new javax.swing.GroupLayout(tambahData);
@@ -374,7 +369,7 @@ public class Master_Produk extends javax.swing.JPanel {
         mainPanel.revalidate();
 
         btn_tambah1.setText("SIMPAN");
-        t_id.setText(servis.nomor());
+        t_id_produk_produk.setText(servis.nomor());
 
         if(btn_tambah.getText().equals("UBAH")){
             dataTabel();
@@ -409,7 +404,7 @@ public class Master_Produk extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(btn_tambah1.getText().equals("TAMBAH")){
             btn_tambah1.setText("SIMPAN");
-            t_id.setText(servis.nomor());
+            t_id_produk_produk.setText(servis.nomor());
         }else if(btn_tambah1.getText().equals("SIMPAN")){
             simpanData();
         }else if(btn_tambah1.getText().equals("PERBARUI")){
@@ -428,33 +423,29 @@ public class Master_Produk extends javax.swing.JPanel {
         resetForm();
     }//GEN-LAST:event_btn_batal1ActionPerformed
 
-    private void t_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_idActionPerformed
+    private void t_id_produkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_id_produkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_idActionPerformed
+    }//GEN-LAST:event_t_id_produkActionPerformed
 
-    private void t_namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_namaActionPerformed
+    private void t_nama_produkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_nama_produkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_namaActionPerformed
+    }//GEN-LAST:event_t_nama_produkActionPerformed
 
-    private void t_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_usernameActionPerformed
+    private void t_jenis_produkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_jenis_produkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_usernameActionPerformed
+    }//GEN-LAST:event_t_jenis_produkActionPerformed
 
-    private void t_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_passwordActionPerformed
+    private void t_deskripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_deskripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_passwordActionPerformed
+    }//GEN-LAST:event_t_deskripsiActionPerformed
 
-    private void t_telpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_telpActionPerformed
+    private void t_jumlah_produkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_jumlah_produkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_telpActionPerformed
+    }//GEN-LAST:event_t_jumlah_produkActionPerformed
 
-    private void t_alamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_alamatActionPerformed
+    private void t_harga_produkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_harga_produkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_alamatActionPerformed
-
-    private void cbx_levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_levelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbx_levelActionPerformed
+    }//GEN-LAST:event_t_harga_produkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -463,7 +454,7 @@ public class Master_Produk extends javax.swing.JPanel {
     private javax.swing.JButton btn_hapus;
     private javax.swing.JButton btn_tambah;
     private javax.swing.JButton btn_tambah1;
-    private javax.swing.JComboBox<String> cbx_level;
+    private com.toedter.calendar.JDateChooser cbx_date;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -477,15 +468,165 @@ public class Master_Produk extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JTextField t_alamat;
     private javax.swing.JTextField t_cari;
-    private javax.swing.JTextField t_id;
-    private javax.swing.JTextField t_nama;
-    private javax.swing.JPasswordField t_password;
-    private javax.swing.JTextField t_telp;
-    private javax.swing.JTextField t_username;
+    private javax.swing.JPasswordField t_deskripsi;
+    private javax.swing.JTextField t_harga_produk;
+    private javax.swing.JTextField t_id_produk;
+    private javax.swing.JTextField t_jenis_produk;
+    private javax.swing.JTextField t_jumlah_produk;
+    private javax.swing.JTextField t_nama_produk;
     private javax.swing.JPanel tambahData;
     private javax.swing.JPanel tampilData;
     private javax.swing.JTable tbl_data;
     // End of variables declaration//GEN-END:variables
+}
+
+private void dataTabel() {
+        tampilData.setVisible(false);
+        tambahData.setVisible(true);
+
+        int row = tbl_data.getSelectedRow();
+        jLabel2.setText("Perbarui Data Produk");
+        
+        t_id_produk.setEnabled(false);
+        t_password.setEnabled(false);
+        t_nama.setEnabled(true);
+
+        t_id_produk.setText(tbl_data.getModel().getValueAt(row, 1).toString());
+        t_nama.setText(tbl_data.getModel().getValueAt(row, 2).toString());
+        t_jenis_produk.setText(tbl_data.getModel().getValueAt(row, 3).toString());
+        t_password.setText(tbl_data.getModel().getValueAt(row, 4).toString());
+        t_telp.setText(tbl_data.getModel().getValueAt(row, 5).toString());
+        t_alamat.setText(tbl_data.getModel().getValueAt(row, 6).toString());
+        cbx_level.setSelectedItem(tbl_data.getModel().getValueAt(row, 7).toString());
+
+//        aktif();
+        btn_tambah1.setText("PERBARUI");
+        btn_batal.setVisible(true);
+    }
+
+    
+    private void aktif(){
+        t_id_produk.setEnabled(true);
+        t_nama.setEnabled(true);
+    }
+    private void loadData(){
+        btn_hapus.setVisible(false);
+        btn_batal.setVisible(false);
+        List<Model_Pengguna> list = servis.ambilData();
+        tblModel.setData(list);
+    }
+    
+    private void hapusData(){
+        int index = tbl_data.getSelectedRow();
+        if (index!=-1){
+            Model_Pengguna model = tblModel.getData(tbl_data.convertRowIndexToModel(index));
+            if(JOptionPane.showConfirmDialog(null,"Data akan Dihapus?","Konfirmasi",JOptionPane.OK_CANCEL_OPTION)==JOptionPane.OK_OPTION){
+                servis.hapusData(model);
+                tblModel.hapusData(index);
+                loadData();
+                resetForm();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Pilih Record yang akan diupdate");
+        }
+    }
+    
+    private void resetForm() {
+    btn_tambah.requestFocus();
+    btn_tambah.setText("TAMBAH");
+    t_id_produk.setText("");
+    t_nama_produk.setText("");
+}
+
+private void tampilPanel() {
+    mainPanel.removeAll();
+    mainPanel.add(new Master_Pengguna());
+    mainPanel.repaint();
+    mainPanel.revalidate();
+}
+
+private void simpanData() {
+    if (validasiInput() == true) {
+        String ID = t_id_produk.getText();
+        String nama = t_nama_produk.getText();
+        String username = t_jenis_produk.getText();
+        String password = t_password.getText();
+        String telepon = t_telp.getText();
+        String alamat = t_alamat.getText();
+        String level = cbx_level.getSelectedItem().toString();
+
+        Model_Pengguna model = new Model_Pengguna();
+        model.setId_produk(ID);
+        model.setNama_produk(nama);
+        model.setUsername(username);
+        model.setPassword(password);
+        model.setTelp_pengguna(telepon);
+        model.setAlamat_pengguna(alamat);
+        model.setLevel(level);
+
+        servis.tambahData(model);
+        tblModel.tambahData(model);
+        tampilPanel();
+        loadData();
+        resetForm();
+        btn_tambah.setText("TAMBAH");
+    }
+}
+    private void perbaruiData() {
+        int index = tbl_data.getSelectedRow();
+        if (index!=-1) {
+            Model_Pengguna mod_pen = tblModel.getData(tbl_data.convertRowIndexToModel(index));
+            if (validasiInput() == true) {
+                String ID = t_id_produk.getText();
+                String nama = t_nama.getText();
+                String username = t_jenis_produk.getText();
+                String password = t_password.getText();
+                String telepon = t_telp.getText();
+                String alamat = t_alamat.getText();
+                String level = cbx_level.getSelectedItem().toString();
+
+                Model_Pengguna model = new Model_Pengguna();
+                model.setId_pengguna(ID);
+                model.setNama_pengguna(nama);
+                model.setUsername(username);
+                model.setPassword(password);
+                model.setTelp_pengguna(telepon);
+                model.setAlamat_pengguna(alamat);
+                model.setLevel(level);
+
+                servis.tambahData(model);
+                tblModel.tambahData(model);
+                tampilPanel();
+                loadData();
+                resetForm();
+                btn_tambah.setText("TAMBAH");
+                }
+        }
+    }
+    private boolean validasiInput(){
+        boolean valid = false;
+        if (t_id_produk.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "ID tidak boleh kosong");
+        } else if (t_nama.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong");
+        } else if (t_jenis_produk.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Username tidak boleh kosong");
+        } else if (t_password.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Password tidak boleh kosong");
+        } else if (t_telp.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No Telepon tidak boleh kosong");
+        } else if (t_alamat.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Alamat tidak boleh kosong");
+        } else if (cbx_level.getSelectedItem().equals("* Pilih Akses Level *")) {
+            JOptionPane.showMessageDialog(null, "Level harus dipilih");
+        } else {
+            valid = true;
+        }
+        return valid;
+    }
+    
+    private void pencarian(){
+        List<Model_Pengguna> list = servis.Pencarian(t_cari.getText());
+    }
 }
