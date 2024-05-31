@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import view.Form_Login;
 import view.Master_Pengguna;
 
@@ -211,7 +212,11 @@ public class Menu_Utama extends javax.swing.JFrame {
         });
         MenuItem menuDashboard = new MenuItem(iconDashboard, false, null, "Dashboard", null,subProduk,subLokasi,subPengguna);
         MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", null);
-        MenuItem menuLogout = new MenuItem(iconLogout, false, null, "Log Out", null);
+        MenuItem menuLogout = new MenuItem(iconLogout, false, null, "Keluar", (ActionEvent e) -> {
+            if(JOptionPane.showConfirmDialog(null,"Yakin Ingin Keluar?","Konfirmasi",JOptionPane.OK_CANCEL_OPTION)==JOptionPane.OK_OPTION){
+                System.exit(0);
+            }
+        });
         
 //        MenuItem menuProduk = new MenuItem(iconProduk, false, null, "Produk",null);
 //        MenuItem menuLokasi = new MenuItem(iconLokasi, false, null, "Lokasi", null);
