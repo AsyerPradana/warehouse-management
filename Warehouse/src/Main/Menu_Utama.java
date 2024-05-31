@@ -186,6 +186,7 @@ public class Menu_Utama extends javax.swing.JFrame {
         ImageIcon iconPengguna = new ImageIcon(getClass().getResource("/img/pengguna.png"));
         ImageIcon iconReport = new ImageIcon(getClass().getResource("/img/report.png"));
         ImageIcon iconHome = new ImageIcon(getClass().getResource("/img/home.png"));
+        ImageIcon iconLogout = new ImageIcon(getClass().getResource("/img/logout.png"));
 
 //        untuk submenu
         MenuItem subProduk = new MenuItem(null, true, iconProduk, "Produk", null);
@@ -210,11 +211,12 @@ public class Menu_Utama extends javax.swing.JFrame {
         });
         MenuItem menuDashboard = new MenuItem(iconDashboard, false, null, "Dashboard", null,subProduk,subLokasi,subPengguna);
         MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", null);
+        MenuItem menuLogout = new MenuItem(iconLogout, false, null, "Log Out", null);
         
 //        MenuItem menuProduk = new MenuItem(iconProduk, false, null, "Produk",null);
 //        MenuItem menuLokasi = new MenuItem(iconLokasi, false, null, "Lokasi", null);
 //        MenuItem menuPengguna = new MenuItem(iconPengguna, false, null, "Pengguna", null);
-        addMenu(menuHome,menuDashboard, menuReport);
+        addMenu(menuHome,menuDashboard, menuReport, menuLogout);
 //        addMenu(menuDashboard, menuProduk, menuLokasi, menuPengguna);
 
     }
