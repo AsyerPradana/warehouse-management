@@ -102,7 +102,27 @@ public class MenuItem extends javax.swing.JPanel {
     private boolean sw = true;
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        // //untuk warna jika diklik
+        Menu_Utama mainFrame = (Menu_Utama) javax.swing.SwingUtilities.getWindowAncestor(this);
+
+        if (mainFrame.activeMenuItem == null || !mainFrame.activeMenuItem.getSubMenu().contains(this)) {
+            mainFrame.setActiveMenuItem(this);
+        } else {
+            mainFrame.setActiveSubMenuItem(this);
+        }
+
+        setBackground(new java.awt.Color(162, 166, 173)); // Change background to 
+        lb_menuName.setForeground(new java.awt.Color(0, 0, 0)); // Change text color to 
+
+        if (showing) {
+            hideMenu();
+        } else {
+            showMenu();
+        }
+
+        if (act != null) {
+            act.actionPerformed(null);
+        }
+// //untuk warna jika diklik
 //        if(sw){
 //        lb_menuName.setForeground(new java.awt.Color(0,0,0));
 //        setBackground(new java.awt.Color(255,255,255));
@@ -114,14 +134,14 @@ public class MenuItem extends javax.swing.JPanel {
 //        }
 //        //setBackground(new java.awt.Color(255,255,255));
 //        //setBackground(Color.red);
-        if (showing) {
-            hideMenu();
-        }else{
-            showMenu();
-        }
-        if (act != null){
-            act.actionPerformed(null);
-        }
+//        if (showing) {
+//            hideMenu();
+//        }else{
+//            showMenu();
+//        }
+//        if (act != null){
+//            act.actionPerformed(null);
+//        }
     }//GEN-LAST:event_formMousePressed
 
 
@@ -131,41 +151,41 @@ public class MenuItem extends javax.swing.JPanel {
     private javax.swing.JLabel lb_menuName;
     // End of variables declaration//GEN-END:variables
 
-    private void hideMenu() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = subMenu.size() - 1; i >= 0; i--) {
-                    sleep();
-                    subMenu.get(i).setVisible(false);
-                    subMenu.get(i).hideMenu();
-                }
-                getParent().repaint();
-                getParent().revalidate();
-                showing = false;
+    public void resetBackground() {
+        setBackground(new java.awt.Color(35, 39, 47));
+        lb_menuName.setForeground(new java.awt.Color(255, 255, 255));
+    }
+
+    protected void hideMenu() {
+        new Thread(() -> {
+            for (int i = subMenu.size() - 1; i >= 0; i--) {
+                sleep();
+                subMenu.get(i).setVisible(false);
+                subMenu.get(i).hideMenu();
             }
+            getParent().repaint();
+            getParent().revalidate();
+            showing = false;
         }).start();
     }
 
     private void showMenu() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < subMenu.size(); i++) {
-                    sleep();
-                    subMenu.get(i).setVisible(true);
-                }
-                showing = true;
-                getParent().repaint();
-                getParent().revalidate();
+        new Thread(() -> {
+            for (int i = 0; i < subMenu.size(); i++) {
+                sleep();
+                subMenu.get(i).setVisible(true);
+
             }
+            getParent().repaint();
+            getParent().revalidate();
+            showing = true;
         }).start();
     }
-    private void sleep(){
-        try{
+
+    private void sleep() {
+        try {
             Thread.sleep(20);
-        }catch(Exception e){
-            
+        } catch (Exception e) {
         }
     }
 }

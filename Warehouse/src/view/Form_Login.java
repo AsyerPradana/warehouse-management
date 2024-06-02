@@ -56,6 +56,7 @@ public class Form_Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(150, 150));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(35, 39, 47));
