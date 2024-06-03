@@ -4,26 +4,26 @@
  */
 package view;
 
-import dao.DAO_Pengguna;
+import dao.DAO_Gudang;
 import java.util.List;
 import javax.swing.JOptionPane;
-import model.Model_Pengguna;
-import service.Service_Pengguna;
-import tablemodel.TableMod_Pengguna;
+import model.Model_Gudang;
+import service.Service_Gudang;
+import tablemodel.TableMod_Gudang;
 
 /**
  *
  * @author Anugerah
  */
-public class Master_Pengguna extends javax.swing.JPanel {
+public class Master_Gudang extends javax.swing.JPanel {
 
-    private Service_Pengguna servis = new DAO_Pengguna();
-    private TableMod_Pengguna tblModel = new TableMod_Pengguna();
+    private Service_Gudang servis = new DAO_Gudang();
+    private TableMod_Gudang tblModel = new TableMod_Gudang();
     
     /**
-     * Creates new form Master_Pengguna
+     * Creates new form Master_Zona
      */
-    public Master_Pengguna() {
+    public Master_Gudang() {
         initComponents();
         
         tbl_data.setModel(tblModel);
@@ -58,24 +58,16 @@ public class Master_Pengguna extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         t_id = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        t_nama = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        t_username = new javax.swing.JTextField();
+        t_namaGudang = new javax.swing.JTextField();
+        t_lokasiGudang = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        t_password = new javax.swing.JPasswordField();
-        jLabel7 = new javax.swing.JLabel();
-        t_telp = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        t_alamat = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        cbx_level = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.CardLayout());
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("Data Pengguna");
+        jLabel1.setText("Data Lokasi Gudang");
 
         btn_tambah.setBackground(new java.awt.Color(103, 178, 113));
         btn_tambah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -104,6 +96,12 @@ public class Master_Pengguna extends javax.swing.JPanel {
         btn_batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_batalActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane1MouseClicked(evt);
             }
         });
 
@@ -179,7 +177,7 @@ public class Master_Pengguna extends javax.swing.JPanel {
         tambahData.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel2.setText("Tambah Data Pengguna");
+        jLabel2.setText("Tambah Gudang");
 
         btn_tambah1.setBackground(new java.awt.Color(103, 178, 113));
         btn_tambah1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -204,7 +202,7 @@ public class Master_Pengguna extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("ID");
+        jLabel3.setText("ID Gudang");
 
         t_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,59 +211,22 @@ public class Master_Pengguna extends javax.swing.JPanel {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Nama");
+        jLabel4.setText("Nama Gudang");
 
-        t_nama.addActionListener(new java.awt.event.ActionListener() {
+        t_namaGudang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_namaActionPerformed(evt);
+                t_namaGudangActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Password");
-
-        t_username.addActionListener(new java.awt.event.ActionListener() {
+        t_lokasiGudang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_usernameActionPerformed(evt);
+                t_lokasiGudangActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Username");
-
-        t_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_passwordActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("No Telepon");
-
-        t_telp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_telpActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setText("Alamat");
-
-        t_alamat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_alamatActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel9.setText("Level");
-
-        cbx_level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "* Pilih Akses Level *", "Owner", "Staff" }));
-        cbx_level.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbx_levelActionPerformed(evt);
-            }
-        });
+        jLabel6.setText("Lokasi Gudang");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -275,22 +236,14 @@ public class Master_Pengguna extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(t_id)
-                    .addComponent(t_nama)
-                    .addComponent(t_username)
-                    .addComponent(t_telp)
-                    .addComponent(t_alamat)
-                    .addComponent(cbx_level, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(t_namaGudang)
+                    .addComponent(t_lokasiGudang)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(t_password))
+                            .addComponent(jLabel6))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -302,28 +255,12 @@ public class Master_Pengguna extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(t_namaGudang, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(t_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbx_level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 89, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(t_lokasiGudang, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(337, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout tambahDataLayout = new javax.swing.GroupLayout(tambahData);
@@ -338,7 +275,7 @@ public class Master_Pengguna extends javax.swing.JPanel {
                         .addComponent(btn_tambah1)
                         .addGap(18, 18, 18)
                         .addComponent(btn_batal1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(367, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tambahDataLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -393,6 +330,7 @@ public class Master_Pengguna extends javax.swing.JPanel {
 
     private void btn_tambah1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambah1ActionPerformed
         // TODO add your handling code here:
+        t_id.setEnabled(false);
         if(btn_tambah1.getText().equals("TAMBAH")){
             btn_tambah1.setText("SIMPAN");
             t_id.setText(servis.nomor());
@@ -418,33 +356,17 @@ public class Master_Pengguna extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_t_idActionPerformed
 
-    private void t_namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_namaActionPerformed
+    private void t_namaGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_namaGudangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_namaActionPerformed
+    }//GEN-LAST:event_t_namaGudangActionPerformed
 
-    private void t_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_usernameActionPerformed
+    private void t_lokasiGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_lokasiGudangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_usernameActionPerformed
-
-    private void t_telpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_telpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_t_telpActionPerformed
-
-    private void t_alamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_alamatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_t_alamatActionPerformed
-
-    private void cbx_levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_levelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbx_levelActionPerformed
+    }//GEN-LAST:event_t_lokasiGudangActionPerformed
 
     private void t_cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_cariActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_t_cariActionPerformed
-
-    private void t_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_t_passwordActionPerformed
 
     private void tbl_dataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_dataMouseClicked
         // TODO add your handling code here:
@@ -455,6 +377,10 @@ public class Master_Pengguna extends javax.swing.JPanel {
         btn_batal.setVisible(true);
     }//GEN-LAST:event_tbl_dataMouseClicked
 
+        boolean closeable = true;
+    private void jScrollPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane1MouseClicked
+    }//GEN-LAST:event_jScrollPane1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_batal;
@@ -462,27 +388,19 @@ public class Master_Pengguna extends javax.swing.JPanel {
     private javax.swing.JButton btn_hapus;
     private javax.swing.JButton btn_tambah;
     private javax.swing.JButton btn_tambah1;
-    private javax.swing.JComboBox<String> cbx_level;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JTextField t_alamat;
     private javax.swing.JTextField t_cari;
     private javax.swing.JTextField t_id;
-    private javax.swing.JTextField t_nama;
-    private javax.swing.JPasswordField t_password;
-    private javax.swing.JTextField t_telp;
-    private javax.swing.JTextField t_username;
+    private javax.swing.JTextField t_lokasiGudang;
+    private javax.swing.JTextField t_namaGudang;
     private javax.swing.JPanel tambahData;
     private javax.swing.JPanel tampilData;
     private javax.swing.JTable tbl_data;
@@ -494,19 +412,12 @@ public class Master_Pengguna extends javax.swing.JPanel {
         tambahData.setVisible(true);
 
         int row = tbl_data.getSelectedRow();
-        jLabel2.setText("Perbarui Data Pengguna");
+        jLabel2.setText("Perbarui Data Gudang");
         
         t_id.setEnabled(false);
-        t_password.setEnabled(false);
-        t_nama.setEnabled(true);
-
         t_id.setText(tbl_data.getModel().getValueAt(row, 1).toString());
-        t_nama.setText(tbl_data.getModel().getValueAt(row, 2).toString());
-        t_username.setText(tbl_data.getModel().getValueAt(row, 3).toString());
-        t_password.setText(tbl_data.getModel().getValueAt(row, 4).toString());
-        t_telp.setText(tbl_data.getModel().getValueAt(row, 5).toString());
-        t_alamat.setText(tbl_data.getModel().getValueAt(row, 6).toString());
-        cbx_level.setSelectedItem(tbl_data.getModel().getValueAt(row, 7).toString());
+        t_namaGudang.setText(tbl_data.getModel().getValueAt(row, 2).toString());
+        t_lokasiGudang.setText(tbl_data.getModel().getValueAt(row, 3).toString());
 
 //        aktif();
         btn_tambah1.setText("PERBARUI");
@@ -516,19 +427,20 @@ public class Master_Pengguna extends javax.swing.JPanel {
     
     private void aktif(){
         t_id.setEnabled(true);
-        t_nama.setEnabled(true);
+        t_namaGudang.setEnabled(true);
     }
     private void loadData(){
+        t_id.setEnabled(false);
         btn_hapus.setVisible(false);
         btn_batal.setVisible(false);
-        List<Model_Pengguna> list = servis.ambilData();
+        List<Model_Gudang> list = servis.ambilData();
         tblModel.setData(list);
     }
     
     private void hapusData(){
         int index = tbl_data.getSelectedRow();
         if (index!=-1){
-            Model_Pengguna model = tblModel.getData(tbl_data.convertRowIndexToModel(index));
+            Model_Gudang model = tblModel.getData(tbl_data.convertRowIndexToModel(index));
             if(JOptionPane.showConfirmDialog(null,"Data akan Dihapus?","Konfirmasi",JOptionPane.OK_CANCEL_OPTION)==JOptionPane.OK_OPTION){
                 servis.hapusData(model);
                 tblModel.hapusData(index);
@@ -544,12 +456,13 @@ public class Master_Pengguna extends javax.swing.JPanel {
     btn_tambah.requestFocus();
     btn_tambah.setText("TAMBAH");
     t_id.setText("");
-    t_nama.setText("");
+    t_namaGudang.setText("");
 }
 
 private void tampilPanel() {
+    t_id.setEnabled(false);
     mainPanel.removeAll();
-    mainPanel.add(new Master_Pengguna());
+    mainPanel.add(new Master_Gudang());
     mainPanel.repaint();
     mainPanel.revalidate();
 }
@@ -557,22 +470,16 @@ private void tampilPanel() {
 private void simpanData() {
     if (validasiInput() == true) {
         String ID = t_id.getText();
-        String nama = t_nama.getText();
-        String username = t_username.getText();
-        String password = t_password.getText();
-        String telepon = t_telp.getText();
-        String alamat = t_alamat.getText();
-        String level = cbx_level.getSelectedItem().toString();
+        String Nama_gudang = t_namaGudang.getText();
+        String Lokasi_gudang = t_lokasiGudang.getText();
 
-        Model_Pengguna model = new Model_Pengguna();
-        model.setId_pengguna(ID);
-        model.setNama_pengguna(nama);
-        model.setUsername(username);
-        model.setPassword(password);
-        model.setTelp_pengguna(telepon);
-        model.setAlamat_pengguna(alamat);
-        model.setLevel(level);
+        Model_Gudang model = new Model_Gudang();
 
+        model.setId_gdg(ID);
+        model.setNama_gudang(Nama_gudang);
+        model.setLokasi_gudang(Lokasi_gudang);
+
+        
         servis.tambahData(model);
         tblModel.tambahData(model);
         tampilPanel();
@@ -584,50 +491,35 @@ private void simpanData() {
     private void perbaruiData() {
         int index = tbl_data.getSelectedRow();
         if (index!=-1) {
-            Model_Pengguna mod_pen = tblModel.getData(tbl_data.convertRowIndexToModel(index));
+            Model_Gudang mod_pen = tblModel.getData(tbl_data.convertRowIndexToModel(index));
             if (validasiInput() == true) {
-                String ID = t_id.getText();
-                String nama = t_nama.getText();
-                String username = t_username.getText();
-                String password = t_password.getText();
-                String telepon = t_telp.getText();
-                String alamat = t_alamat.getText();
-                String level = cbx_level.getSelectedItem().toString();
+            String ID = t_id.getText();
+            String Nama_gudang = t_lokasiGudang.getText();
+            String Lokasi_gudang = t_namaGudang.getText();
 
-                Model_Pengguna model = new Model_Pengguna();
-                model.setId_pengguna(ID);
-                model.setNama_pengguna(nama);
-                model.setUsername(username);
-                model.setPassword(password);
-                model.setTelp_pengguna(telepon);
-                model.setAlamat_pengguna(alamat);
-                model.setLevel(level);
-
-                servis.perbaruiData(model);
-                tblModel.perbaruiData(index, model);
-                tampilPanel();
-                loadData();
-                resetForm();
-                btn_tambah.setText("TAMBAH");
-                }
+            Model_Gudang model = new Model_Gudang();
+            
+            model.setId_gdg(ID);
+            model.setNama_gudang(Nama_gudang);
+            model.setLokasi_gudang(Lokasi_gudang);
+            
+            servis.perbaruiData(model);
+            tblModel.perbaruiData(index, model);
+            tampilPanel();
+            loadData();
+            resetForm();
+            btn_tambah.setText("TAMBAH");
+            }
         }
     }
     private boolean validasiInput(){
         boolean valid = false;
         if (t_id.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "ID tidak boleh kosong");
-        } else if (t_nama.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong");
-        } else if (t_username.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Username tidak boleh kosong");
-        } else if (t_password.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Password tidak boleh kosong");
-        } else if (t_telp.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No Telepon tidak boleh kosong");
-        } else if (t_alamat.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Alamat tidak boleh kosong");
-        } else if (cbx_level.getSelectedItem().equals("* Pilih Akses Level *")) {
-            JOptionPane.showMessageDialog(null, "Level harus dipilih");
+            JOptionPane.showMessageDialog(null, "ID Gudang tidak boleh kosong");
+        } else if (t_namaGudang.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nama Gudang tidak boleh kosong");
+        } else if (t_lokasiGudang.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Lokasi tidak boleh kosong");
         } else {
             valid = true;
         }
@@ -635,6 +527,6 @@ private void simpanData() {
     }
     
     private void pencarian(){
-        List<Model_Pengguna> list = servis.Pencarian(t_cari.getText());
+        List<Model_Gudang> list = servis.Pencarian(t_cari.getText());
     }
 }

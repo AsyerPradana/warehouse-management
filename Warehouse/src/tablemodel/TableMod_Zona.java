@@ -8,24 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
-import model.Model_Pengguna;
-
+import model.Model_Zona;
 
 /**
  *
  * @author Administrator
  */
-public class TableMod_Pengguna extends AbstractTableModel{
-    private List<Model_Pengguna> list = new ArrayList<>();
+public class TableMod_Zona extends AbstractTableModel {
+    private List<Model_Zona> list = new ArrayList<>();
 
-    public void tambahData(Model_Pengguna mod_pengguna) {
-        list.add(mod_pengguna);
+    public void tambahData(Model_Zona mod_zona) {
+        list.add(mod_zona);
         fireTableRowsInserted(list.size() - 1, list.size() - 1);
         JOptionPane.showMessageDialog(null, "Data Berhasil ditambahkan");
     }
 
-    public void perbaruiData(int row, Model_Pengguna mod_pengguna) {
-        list.add(row, mod_pengguna);
+    public void perbaruiData(int row, Model_Zona mod_zona) {
+        list.add(row, mod_zona);
         fireTableDataChanged();
         JOptionPane.showMessageDialog(null, "Data Berhasil di perbarui");
     }
@@ -41,18 +40,18 @@ public class TableMod_Pengguna extends AbstractTableModel{
         fireTableDataChanged();
     }
 
-    public void setData(List<Model_Pengguna> list) {
+    public void setData(List<Model_Zona> list) {
         clear();
         this.list.addAll(list);
         fireTableDataChanged();
     }
 
-    public void setData(int index, Model_Pengguna mod_pengguna) {
-        list.set(index, mod_pengguna);
+    public void setData(int index, Model_Zona mod_zona) {
+        list.set(index, mod_zona);
         fireTableRowsUpdated(index, index);
     }
     
-    public Model_Pengguna getData(int index){
+    public Model_Zona getData(int index){
         return list.get(index);
     }
     
@@ -61,8 +60,7 @@ public class TableMod_Pengguna extends AbstractTableModel{
         return list.size();
     }
     
-    private final String[] columnName = {"No", "ID", "Nama", "Username", "Password", "Telepon", "Alamat", "Level"};
-    
+    private final String[] columnName = {"No", "ID", "Nama Zona", "ID Gudang", "Nama Gudang", "Temperature", "Tingkat Keamanan"};
     @Override
     public int getColumnCount(){
         return columnName.length;
@@ -74,13 +72,12 @@ public class TableMod_Pengguna extends AbstractTableModel{
             return "    " + (rowIndex + 1);
         }else{
             switch (columnIndex - 1){
-            case 0: return list.get(rowIndex).getId_pengguna();
-            case 1: return list.get(rowIndex).getNama_pengguna();
-            case 2: return list.get(rowIndex).getUsername();
-            case 3: return list.get(rowIndex).getPassword();
-            case 4: return list.get(rowIndex).getTelp_pengguna();
-            case 5: return list.get(rowIndex).getAlamat_pengguna();
-            case 6: return list.get(rowIndex).getLevel();
+            case 0: return list.get(rowIndex).getId();
+            case 1: return list.get(rowIndex).getNama_zona();
+            case 2: return list.get(rowIndex).getId_gudang().getId_gdg();
+            case 3: return list.get(rowIndex).getNama_gudang();
+            case 4: return list.get(rowIndex).getTemperatur();
+            case 5: return list.get(rowIndex).getTingkat_keamanan();
             default: return null;
             }
         }
@@ -95,18 +92,4 @@ public class TableMod_Pengguna extends AbstractTableModel{
             return columnName[column];
         }
     }
-    
-//    public String getColumnName(int column){
-//        switch(column){
-//            case 0: return "No id";
-//            case 1: return "Nama Pengguna"; 
-//            case 2: return "Username";
-//            case 3: return "Password";
-//            case 4: return "No Telepon";
-//            case 5: return "Alamat ";
-//            case 6: return "Level";
-//            default: return null;
-//        }
-//    }
-
 }

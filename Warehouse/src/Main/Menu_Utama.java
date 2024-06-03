@@ -9,8 +9,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import view.Form_Login;
+import javax.swing.JOptionPane;
+import view.Master_Gudang;
 import view.Master_Pengguna;
+import view.Master_Zona;
 
 /**
  *
@@ -21,6 +23,9 @@ public class Menu_Utama extends javax.swing.JFrame {
     /**
      * Creates new form Menu_Utama1
      */
+    protected MenuItem activeMenuItem;
+    protected MenuItem activeSubMenuItem;
+     
     public Menu_Utama(String Id, String Nama, String Level2) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -187,10 +192,24 @@ public class Menu_Utama extends javax.swing.JFrame {
         ImageIcon iconReport = new ImageIcon(getClass().getResource("/img/report.png"));
         ImageIcon iconHome = new ImageIcon(getClass().getResource("/img/home.png"));
         ImageIcon iconLogout = new ImageIcon(getClass().getResource("/img/logout.png"));
+        ImageIcon iconMap = new ImageIcon(getClass().getResource("/img/map.png"));
+        ImageIcon iconWarehouse = new ImageIcon(getClass().getResource("/img/warehouse.png"));
+        ImageIcon iconLocation = new ImageIcon(getClass().getResource("/img/location.png"));
 
 //        untuk submenu
+        MenuItem subZona = new MenuItem(null, true, iconMap, "Zona", (ActionEvent e) -> {
+            pn_utama.removeAll();
+            pn_utama.add(new Master_Zona());
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        });
+        MenuItem subGudang = new MenuItem(null, true, iconWarehouse, "Gudang", (ActionEvent e) -> {
+            pn_utama.removeAll();
+            pn_utama.add(new Master_Gudang());
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        });
         MenuItem subProduk = new MenuItem(null, true, iconProduk, "Produk", null);
-        MenuItem subLokasi = new MenuItem(null, true, iconLokasi, "Lokasi", null);
         MenuItem subPengguna = new MenuItem(null, true, iconPengguna, "Pengguna", (ActionEvent e) -> {
             pn_utama.removeAll();
             pn_utama.add(new Master_Pengguna());
@@ -209,14 +228,20 @@ public class Menu_Utama extends javax.swing.JFrame {
                 pn_utama.revalidate();     
             }
         });
-        MenuItem menuDashboard = new MenuItem(iconDashboard, false, null, "Dashboard", null,subProduk,subLokasi,subPengguna);
+        
+        MenuItem menuDashboard = new MenuItem(iconDashboard, false, null, "Dashboard", null,subProduk,subPengguna);
+        MenuItem menuLokasi = new MenuItem(iconLocation, false, null, "Manage Lokasi", null,subGudang,subZona);
         MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", null);
-        MenuItem menuLogout = new MenuItem(iconLogout, false, null, "Log Out", null);
+        MenuItem menuLogout = new MenuItem(iconLogout, false, null, "Keluar", (ActionEvent e) -> {
+            if(JOptionPane.showConfirmDialog(null,"Yakin Ingin Keluar?","Konfirmasi",JOptionPane.OK_CANCEL_OPTION)==JOptionPane.OK_OPTION){
+                System.exit(0);
+            }
+        });
         
 //        MenuItem menuProduk = new MenuItem(iconProduk, false, null, "Produk",null);
 //        MenuItem menuLokasi = new MenuItem(iconLokasi, false, null, "Lokasi", null);
 //        MenuItem menuPengguna = new MenuItem(iconPengguna, false, null, "Pengguna", null);
-        addMenu(menuHome,menuDashboard, menuReport, menuLogout);
+        addMenu(menuHome,menuDashboard, menuLokasi,menuReport, menuLogout);
 //        addMenu(menuDashboard, menuProduk, menuLokasi, menuPengguna);
 
     }
@@ -229,5 +254,19 @@ public class Menu_Utama extends javax.swing.JFrame {
             }
         }
         pn_menus.revalidate();
+    }
+    public void setActiveMenuItem(MenuItem menuItem) {
+        if (activeMenuItem != null) {
+            activeMenuItem.resetBackground();
+//            activeMenuItem.hideMenu();
+        }
+        activeMenuItem = menuItem;
+    }
+
+    public void setActiveSubMenuItem(MenuItem subMenuItem) {
+        if (activeSubMenuItem != null) {
+            activeSubMenuItem.resetBackground();
+        }
+        activeSubMenuItem = subMenuItem;
     }
 }
