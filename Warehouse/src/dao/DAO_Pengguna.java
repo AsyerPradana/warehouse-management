@@ -161,8 +161,9 @@ public class DAO_Pengguna implements Service_Pengguna{
         PreparedStatement st = null;
         List list = new ArrayList();
         ResultSet rs = null;
-        String sql = "SELECT * FROM pengguna WHERE id_pengguna LIKE '%"+id+"' OR nama_pengguna LIKE '%"+id+"'"
-                + "OR username LIKE '%"+id+"' OR telp_pengguna LIKE '%"+id+"' OR alamat_pengguna LIKE '%"+id+"'";
+        String sql = "SELECT * FROM pengguna WHERE id_pengguna LIKE '%"+id+"' OR nama_pengguna LIKE '%"+id+"%'"
+                + "OR username LIKE '%"+id+"%' OR telp_pengguna LIKE '%"+id+"%' OR alamat_pengguna LIKE '%"+id+"%'"
+                + "OR level LIKE '%"+id+"%'";
          try {
             st = conn.prepareStatement(sql);
             rs = st.executeQuery();

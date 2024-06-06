@@ -104,12 +104,7 @@ public class MenuItem extends javax.swing.JPanel {
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         Menu_Utama mainFrame = (Menu_Utama) javax.swing.SwingUtilities.getWindowAncestor(this);
 
-        if (mainFrame.activeMenuItem == null || !mainFrame.activeMenuItem.getSubMenu().contains(this)) {
-            mainFrame.setActiveMenuItem(this);
-        } else {
-            mainFrame.setActiveSubMenuItem(this);
-        }
-
+        mainFrame.setActiveMenuItem(this);
         setBackground(new java.awt.Color(162, 166, 173)); // Change background to 
         lb_menuName.setForeground(new java.awt.Color(0, 0, 0)); // Change text color to 
 
