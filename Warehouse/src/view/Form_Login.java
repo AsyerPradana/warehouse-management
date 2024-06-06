@@ -58,6 +58,7 @@ public class Form_Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(150, 150));
         setResizable(false);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(35, 39, 47));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 400));
@@ -102,7 +103,6 @@ public class Form_Login extends javax.swing.JFrame {
         jLabel2.setText("Username");
         jPanel6.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
-        t_username.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 255, 153), 1, true));
         t_username.setPreferredSize(new java.awt.Dimension(64, 30));
         t_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +121,11 @@ public class Form_Login extends javax.swing.JFrame {
         jLabel3.setText("Password");
         jPanel7.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
-        t_password.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 255, 153), 1, true));
+        t_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t_passwordActionPerformed(evt);
+            }
+        });
         jPanel7.add(t_password, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(jPanel7);
@@ -134,15 +138,33 @@ public class Form_Login extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(103, 178, 113));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Login");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
             }
         });
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setText("Close");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -203,11 +225,37 @@ public class Form_Login extends javax.swing.JFrame {
 
     private void t_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_usernameActionPerformed
         // TODO add your handling code here:
+        t_password.requestFocus();
     }//GEN-LAST:event_t_usernameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void t_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_passwordActionPerformed
+        // TODO add your handling code here:
+        jButton1.requestFocus();
+    }//GEN-LAST:event_t_passwordActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+        prosesLogin();
+    }//GEN-LAST:event_jButton1KeyPressed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        // TODO add your handling code here:
+                prosesLogin();
+
+    }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2MousePressed
 
     /**
      * @param args the command line arguments

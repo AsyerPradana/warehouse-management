@@ -148,8 +148,8 @@ public class DAO_Gudang implements Service_Gudang{
         PreparedStatement st = null;
         List list = new ArrayList();
         ResultSet rs = null;
-        String sql = "SELECT * FROM gudang WHERE id_gudang LIKE '%"+id+"' OR nama_gudang LIKE '%"+id+"'"
-                + "OR lokasi_gudang LIKE '%"+id+"'";
+        String sql = "SELECT * FROM gudang WHERE id_gudang LIKE '%"+id+"%' OR nama_gudang LIKE '%"+id+"%'"
+                + "OR lokasi_gudang LIKE '%"+id+"%'";
          try {
             st = conn.prepareStatement(sql);
             rs = st.executeQuery();

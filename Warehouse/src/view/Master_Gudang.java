@@ -49,7 +49,6 @@ public class Master_Gudang extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_data = new javax.swing.JTable();
         t_cari = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         tambahData = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btn_tambah1 = new javax.swing.JButton();
@@ -123,13 +122,23 @@ public class Master_Gudang extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbl_data);
 
+        t_cari.setForeground(new java.awt.Color(204, 204, 204));
+        t_cari.setText("Cari...");
+        t_cari.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                t_cariMouseClicked(evt);
+            }
+        });
         t_cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_cariActionPerformed(evt);
             }
         });
-
-        jLabel11.setText("Cari");
+        t_cari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_cariKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout tampilDataLayout = new javax.swing.GroupLayout(tampilData);
         tampilData.setLayout(tampilDataLayout);
@@ -146,9 +155,7 @@ public class Master_Gudang extends javax.swing.JPanel {
                         .addGap(27, 27, 27)
                         .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))
                     .addGroup(tampilDataLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -165,11 +172,10 @@ public class Master_Gudang extends javax.swing.JPanel {
                     .addComponent(btn_tambah)
                     .addComponent(btn_hapus)
                     .addComponent(btn_batal)
-                    .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         mainPanel.add(tampilData, "card2");
@@ -381,6 +387,16 @@ public class Master_Gudang extends javax.swing.JPanel {
     private void jScrollPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane1MouseClicked
     }//GEN-LAST:event_jScrollPane1MouseClicked
 
+    private void t_cariKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_cariKeyTyped
+        // TODO add your handling code here:
+        pencarian();
+    }//GEN-LAST:event_t_cariKeyTyped
+
+    private void t_cariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t_cariMouseClicked
+        // TODO add your handling code here:
+        t_cari.setText("");
+    }//GEN-LAST:event_t_cariMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_batal;
@@ -389,7 +405,6 @@ public class Master_Gudang extends javax.swing.JPanel {
     private javax.swing.JButton btn_tambah;
     private javax.swing.JButton btn_tambah1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -528,5 +543,6 @@ private void simpanData() {
     
     private void pencarian(){
         List<Model_Gudang> list = servis.Pencarian(t_cari.getText());
+        tblModel.setData(list);
     }
 }
