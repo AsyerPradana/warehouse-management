@@ -7,7 +7,8 @@ package Main;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-
+import java.awt.Font;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,6 +39,7 @@ public class Menu_Utama extends javax.swing.JFrame {
         
         lb_level.setText(Level2);
         lb_nama.setText(Nama);
+        setFont();
         execute();
         
         //refresh timer delay 1 detik
@@ -49,6 +51,18 @@ public class Menu_Utama extends javax.swing.JFrame {
         });
         //mulai timer
         timer.start();
+    }
+    
+    private void setFont(){
+        try {
+            File fontStyle = new File("src/custom/Poppins-Bold.ttf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(30f);
+            lb_nama.setFont(font);
+            lb_level.setFont(font);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     public void DateTime(){
@@ -78,7 +92,7 @@ public class Menu_Utama extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         pn_menus = new javax.swing.JPanel();
         pn_content = new javax.swing.JPanel();
-        pn_utama = new javax.swing.JPanel();
+        pn_utama = new custom.panelCustom();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -86,16 +100,15 @@ public class Menu_Utama extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         pn_navbar.setBackground(new java.awt.Color(9, 24, 51));
         pn_navbar.setPreferredSize(new java.awt.Dimension(772, 70));
 
-        lb_nama.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lb_nama.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lb_nama.setForeground(new java.awt.Color(255, 255, 255));
         lb_nama.setText("Nama");
 
-        lb_level.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lb_level.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lb_level.setForeground(new java.awt.Color(254, 255, 110));
         lb_level.setText("Level");
 
@@ -113,7 +126,7 @@ public class Menu_Utama extends javax.swing.JFrame {
                 .addComponent(lb_level)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_nama)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 526, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
                 .addComponent(lb_tanggal))
         );
         pn_navbarLayout.setVerticalGroup(
@@ -123,7 +136,7 @@ public class Menu_Utama extends javax.swing.JFrame {
                 .addGroup(pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_nama)
                     .addComponent(lb_level))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_navbarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lb_tanggal)
@@ -156,7 +169,10 @@ public class Menu_Utama extends javax.swing.JFrame {
 
         pn_content.setBackground(new java.awt.Color(63, 68, 77));
 
-        pn_utama.setBackground(new java.awt.Color(63, 68, 77));
+        pn_utama.setRoundBottomLeft(40);
+        pn_utama.setRoundBottomRight(40);
+        pn_utama.setRoundTopLeft(40);
+        pn_utama.setRoundTopRight(40);
         pn_utama.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout pn_contentLayout = new javax.swing.GroupLayout(pn_content);
@@ -165,11 +181,15 @@ public class Menu_Utama extends javax.swing.JFrame {
             pn_contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_contentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pn_contentLayout.setVerticalGroup(
             pn_contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pn_contentLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(pn_content, java.awt.BorderLayout.CENTER);
@@ -180,7 +200,7 @@ public class Menu_Utama extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here
-        pn_utama.add(new content_bg());
+        pn_utama.add(new content_awal());
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_formWindowOpened
@@ -228,7 +248,7 @@ public class Menu_Utama extends javax.swing.JFrame {
     private javax.swing.JPanel pn_menus;
     private javax.swing.JPanel pn_navbar;
     private javax.swing.JPanel pn_sidebar;
-    private javax.swing.JPanel pn_utama;
+    private custom.panelCustom pn_utama;
     // End of variables declaration//GEN-END:variables
 
     private void execute(){
@@ -262,20 +282,20 @@ public class Menu_Utama extends javax.swing.JFrame {
 //        Untuk menu 
         MenuItem menuHome = new MenuItem(iconHome, false, null, "Home", (ActionEvent e) -> {
             pn_utama.removeAll();
-            pn_utama.add(new content_bg());
+            pn_utama.add(new content_awal());
             pn_utama.repaint();
             pn_utama.revalidate();
         });
         
         MenuItem menuDashboard = new MenuItem(iconDashboard, false, null, "Dashboard", null,subProduk);
         MenuItem menuLokasi = new MenuItem(iconLocation, false, null, "Manage Lokasi", null,subGudang,subZona);
-        MenuItem menuPengguna = new MenuItem(iconPengguna, false, null, "Manage Karyawan", null);
-        MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", (ActionEvent e) -> {
+        MenuItem menuPengguna = new MenuItem(iconPengguna, false, null, "Manage Karyawan", (ActionEvent e) -> {
             pn_utama.removeAll();
             pn_utama.add(new Master_Pengguna());
             pn_utama.repaint();
             pn_utama.revalidate();
         });
+        MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", null);
         MenuItem menuLogout = new MenuItem(iconLogout, false, null, "Keluar", (ActionEvent e) -> {
             if(JOptionPane.showConfirmDialog(null,"Yakin Ingin Keluar?","Konfirmasi",JOptionPane.OK_CANCEL_OPTION)==JOptionPane.OK_OPTION){
                 System.exit(0);

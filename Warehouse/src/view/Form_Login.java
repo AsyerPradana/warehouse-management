@@ -8,7 +8,8 @@ import dao.DAO_Login;
 import javax.swing.JOptionPane;
 import model.Model_Login;
 import service.Service_Login;
-import Main.Menu_Utama;
+import java.awt.Font;
+import java.io.File;
 
 /**
  *
@@ -26,10 +27,24 @@ public class Form_Login extends javax.swing.JFrame {
     
     public Form_Login() {
         initComponents();
-        jButton1.requestFocus();
+        setFont();
+        t_username.requestFocus();
         
     }
 
+    private void setFont(){
+        try {
+            File fontStyle = new File("src/custom/Poppins-Bold.ttf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(24f);
+            Font font1 = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(12f);
+            jLabel1.setFont(font);
+            jLabel2.setFont(font1);
+            jLabel3.setFont(font1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
