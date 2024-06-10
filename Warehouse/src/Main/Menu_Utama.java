@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import view.Master_Gudang;
 import view.Master_Pengguna;
+import view.Master_Barang;
 import view.Master_Zona;
 
 /**
@@ -276,8 +277,12 @@ public class Menu_Utama extends javax.swing.JFrame {
             pn_utama.repaint();
             pn_utama.revalidate();
         });
-        MenuItem subProduk = new MenuItem(null, true, iconProduk, "Produk", null);
-                
+        MenuItem subProduk = new MenuItem(null, true, iconProduk, "Barang", (ActionEvent e) -> {
+            pn_utama.removeAll();
+            pn_utama.add(new Master_Barang());
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        });
 
 //        Untuk menu 
         MenuItem menuHome = new MenuItem(iconHome, false, null, "Home", (ActionEvent e) -> {
