@@ -20,6 +20,7 @@ import javax.swing.Timer;
 import view.Master_Gudang;
 import view.Master_Pengguna;
 import view.Master_Barang;
+import view.Master_Report;
 import view.Master_Zona;
 
 /**
@@ -300,7 +301,13 @@ public class Menu_Utama extends javax.swing.JFrame {
             pn_utama.repaint();
             pn_utama.revalidate();
         });
-        MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", null);
+        MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", (ActionEvent e) -> {
+            
+            pn_utama.removeAll();
+            pn_utama.add(new Master_Report());
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        });
         MenuItem menuLogout = new MenuItem(iconLogout, false, null, "Keluar", (ActionEvent e) -> {
             if(JOptionPane.showConfirmDialog(null,"Yakin Ingin Keluar?","Konfirmasi",JOptionPane.OK_CANCEL_OPTION)==JOptionPane.OK_OPTION){
                 System.exit(0);

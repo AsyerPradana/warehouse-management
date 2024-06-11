@@ -124,7 +124,6 @@ public class Master_Pengguna extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbl_data);
 
-        t_cari.setForeground(new java.awt.Color(204, 204, 204));
         t_cari.setText("Cari...");
         t_cari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -151,16 +150,16 @@ public class Master_Pengguna extends javax.swing.JPanel {
                 .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
                     .addGroup(tampilDataLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 386, Short.MAX_VALUE))
+                    .addGroup(tampilDataLayout.createSequentialGroup()
                         .addComponent(btn_tambah)
                         .addGap(24, 24, 24)
                         .addComponent(btn_hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tampilDataLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         tampilDataLayout.setVerticalGroup(

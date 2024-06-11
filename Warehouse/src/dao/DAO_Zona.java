@@ -161,8 +161,10 @@ public class DAO_Zona implements Service_Zona{
         PreparedStatement st = null;
         List list = new ArrayList();
         ResultSet rs = null;
-        String sql = "SELECT * FROM zona WHERE id_zona LIKE '%"+id+"' OR nama_zona LIKE '%"+id+"'"
-                + "OR tingkat_keamanan LIKE '%"+id+"'";
+        String sql = "SELECT z.id_zona, z.nama_zona, g.id_gudang, g.nama_gudang, z.temperatur, "
+                + "z.tingkat_keamanan FROM zona z INNER JOIN gudang g ON z.id_gudang = g.id_gudang "
+                + "WHERE id_zona LIKE '%"+id+"%' OR nama_zona LIKE '%"+id+"%'"
+                + "OR tingkat_keamanan LIKE '%"+id+"%'OR temperatur LIKE '%"+id+"%'";
          try {
             st = conn.prepareStatement(sql);
             rs = st.executeQuery();
@@ -170,11 +172,11 @@ public class DAO_Zona implements Service_Zona{
                 Model_Zona mozel = new Model_Zona();
                 Model_Gudang jb = new Model_Gudang();
                 
-                mozel.setId(rs.getString("id_zona"));
-                mozel.setNama_zona(rs.getString("nama_zona"));
-                jb.setId_gdg(rs.getString("id_gudang"));
-                mozel.setNama_gudang(rs.getString("nama_gudang"));
-                mozel.setTemperatur(rs.getString("temperatur"));
+                mozel.setId             (rs.getString("id_zona"));
+                mozel.setNama_zona      (rs.getString("nama_zona"));
+                jb.setId_gdg            (rs.getString("id_gudang"));
+                mozel.setNama_gudang    (rs.getString("nama_gudang"));
+                mozel.setTemperatur     (rs.getString("temperatur"));
                 mozel.setTingkat_keamanan(rs.getString("tingkat_keamanan"));
                 
                 mozel.setId_gudang(jb);
