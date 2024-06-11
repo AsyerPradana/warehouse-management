@@ -1,11 +1,11 @@
 # warehouse-management
 Object-Oriented Programming Project that discuss about efficiency Warehouse Management.
 
-# Warehouse/
-
+#⚠️Requiment⚠️
+- Fitur Cetak Report hanya bisa dijalankan pada jdk versi 8 kebawah atau 1.8 kebawah!
+- mengaktifkan mysql di port 3306 dan mengimport database 'db_warehouse'!
 
 # Run Program
-Warning : Fitur Cetak Report hanya bisa dijalankan pada jdk versi 8 kebawah atau 1.8 kebawah!
 Pastikan sebelum menjalankan project untuk menambahkan database terlebih dahulu
 1. Buat database 'db_warehouse' kemudian import file sql kedalam database
 ![image](https://github.com/AsyerPradana/warehouse-management/assets/157374618/bf2211cc-4a4f-4888-b371-6bc46bb9e834)
