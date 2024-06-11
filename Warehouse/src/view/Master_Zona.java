@@ -130,12 +130,21 @@ public class Master_Zona extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbl_data);
 
-        t_cari.setForeground(new java.awt.Color(204, 204, 204));
         t_cari.setText("Cari...");
         t_cari.setMaximumSize(new java.awt.Dimension(100, 2147483647));
+        t_cari.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                t_cariMouseClicked(evt);
+            }
+        });
         t_cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_cariActionPerformed(evt);
+            }
+        });
+        t_cari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_cariKeyTyped(evt);
             }
         });
 
@@ -146,19 +155,20 @@ public class Master_Zona extends javax.swing.JPanel {
             .addGroup(tampilDataLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                    .addGroup(tampilDataLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(tampilDataLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(tampilDataLayout.createSequentialGroup()
                         .addComponent(btn_tambah)
                         .addGap(24, 24, 24)
                         .addComponent(btn_hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tampilDataLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         tampilDataLayout.setVerticalGroup(
             tampilDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,6 +472,16 @@ public class Master_Zona extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_t_namaGudangActionPerformed
 
+    private void t_cariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t_cariMouseClicked
+        // TODO add your handling code here:
+        t_cari.setText("");
+    }//GEN-LAST:event_t_cariMouseClicked
+
+    private void t_cariKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_cariKeyTyped
+        // TODO add your handling code here:
+        pencarian();
+    }//GEN-LAST:event_t_cariKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_batal;
@@ -647,5 +667,6 @@ private void simpanData() {
     
     private void pencarian(){
         List<Model_Zona> list = servis.Pencarian(t_cari.getText());
+        tblModel.setData(list);
     }
 }
