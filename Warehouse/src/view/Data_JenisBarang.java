@@ -21,17 +21,23 @@ public class Data_JenisBarang extends javax.swing.JDialog {
      * Creates new form Data_Produk
      */
     
+    private int halamanSaatIni = 1;
+    private int dataPerHalaman = 8;
+    private int totalHalaman;
+    private int totalPages;
+    
     int xx, xy;
     private Service_JenisBarang servis = new DAO_JenisBarang();
     private TableMod_JenisBarang tblModel = new TableMod_JenisBarang();
     public Model_JenisBarang jb = new Model_JenisBarang();
+
 
     public Data_JenisBarang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
         tbl_jenisBarang.setModel(tblModel);
-        btn_search.requestFocus();
+        t_search.requestFocus();
         loadData();
         
     }
@@ -51,9 +57,14 @@ public class Data_JenisBarang extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         t_search = new javax.swing.JTextField();
-        btn_search = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_jenisBarang = new javax.swing.JTable();
+        btn_firstPage = new javax.swing.JButton();
+        btn_lastPage = new javax.swing.JButton();
+        btn_next = new javax.swing.JButton();
+        cbx_page = new javax.swing.JComboBox<>();
+        btn_before = new javax.swing.JButton();
+        lb_halaman = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(573, 552));
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -66,7 +77,7 @@ public class Data_JenisBarang extends javax.swing.JDialog {
                 formMousePressed(evt);
             }
         });
-        setLayout(new java.awt.CardLayout());
+        getContentPane().setLayout(new java.awt.CardLayout());
 
         jLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel.setText("Tambah Data Pengguna");
@@ -87,27 +98,21 @@ public class Data_JenisBarang extends javax.swing.JDialog {
             }
         });
 
-        btn_search.setText("search");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(t_search, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_search)
-                .addGap(36, 36, 36))
+                .addComponent(t_search, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_search))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(t_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         tbl_jenisBarang.setModel(new javax.swing.table.DefaultTableModel(
@@ -128,6 +133,44 @@ public class Data_JenisBarang extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tbl_jenisBarang);
 
+        btn_firstPage.setText("First Page");
+        btn_firstPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_firstPageActionPerformed(evt);
+            }
+        });
+
+        btn_lastPage.setText("Last Page");
+        btn_lastPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_lastPageActionPerformed(evt);
+            }
+        });
+
+        btn_next.setText(">");
+        btn_next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nextActionPerformed(evt);
+            }
+        });
+
+        cbx_page.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "16", "32", "64" }));
+        cbx_page.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbx_pageActionPerformed(evt);
+            }
+        });
+
+        btn_before.setText("<");
+        btn_before.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_beforeActionPerformed(evt);
+            }
+        });
+
+        lb_halaman.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_halaman.setText("Halaman of Total Halaman");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -136,7 +179,22 @@ public class Data_JenisBarang extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(120, 120, 120)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lb_halaman, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btn_firstPage)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_before)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbx_page, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_next)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_lastPage)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -158,10 +216,21 @@ public class Data_JenisBarang extends javax.swing.JDialog {
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lb_halaman, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cbx_page, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btn_before, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_next, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_firstPage, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_lastPage, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        add(jPanel1, "card2");
+        getContentPane().add(jPanel1, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbl_jenisBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_jenisBarangMouseClicked
@@ -192,6 +261,37 @@ public class Data_JenisBarang extends javax.swing.JDialog {
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_formMouseDragged
 
+    private void btn_firstPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firstPageActionPerformed
+        halamanSaatIni = 1;
+        loadData();
+    }//GEN-LAST:event_btn_firstPageActionPerformed
+
+    private void btn_lastPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lastPageActionPerformed
+        halamanSaatIni = totalPages;
+        loadData();
+    }//GEN-LAST:event_btn_lastPageActionPerformed
+
+    private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
+        if (halamanSaatIni < totalPages) {
+            halamanSaatIni++;
+            loadData();
+        }
+    }//GEN-LAST:event_btn_nextActionPerformed
+
+    private void cbx_pageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_pageActionPerformed
+        dataPerHalaman = Integer.parseInt(cbx_page.getSelectedItem().toString());
+        halamanSaatIni = 1;
+        loadData();
+    }//GEN-LAST:event_cbx_pageActionPerformed
+
+    private void btn_beforeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_beforeActionPerformed
+        if (halamanSaatIni > 1)
+        {
+            halamanSaatIni--;
+            loadData();
+        }
+    }//GEN-LAST:event_btn_beforeActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -208,32 +308,54 @@ public class Data_JenisBarang extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_search;
+    private javax.swing.JButton btn_before;
+    private javax.swing.JButton btn_firstPage;
+    private javax.swing.JButton btn_lastPage;
+    private javax.swing.JButton btn_next;
+    private javax.swing.JComboBox<String> cbx_page;
     private javax.swing.JLabel jLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lb_halaman;
     private javax.swing.JTextField t_search;
     private javax.swing.JTable tbl_jenisBarang;
     // End of variables declaration//GEN-END:variables
 
     private void pencarian() {
-    List<Model_JenisBarang> list = servis.pencarian(t_search.getText());
-    tblModel.setData(list);
+        List<model.Model_JenisBarang> list = servis.pencarian(t_search.getText());
+        tblModel.setData(list);
+    }
+    
+    private void getTotalHalaman() {
+        int totalEntries = servis.getTotalHalaman(); // Mengambil totalEntries dari servis atau DAO yang sesuai
+        setTotalHalaman(totalEntries); // Mengatur totalEntries ke dalam objek Pagination
+    }
+    
+    public void setTotalHalaman(int totalEntries) {
+        this.totalHalaman = totalEntries;
     }
 
+    private void calculateTotalPages() {
+        totalPages = (int) Math.ceil((double) totalHalaman / dataPerHalaman);
+    }
+    
     private void loadData() {
-        List<Model_JenisBarang> list = servis.ambilData();
+        calculateTotalPages();
+        lb_halaman.setText(String.valueOf("Halaman "+halamanSaatIni+" dari Total Data "+totalHalaman));
+        
+        int startIndex = (halamanSaatIni - 1) * dataPerHalaman;
+        List<Model_JenisBarang> list = servis.ambilData(startIndex, dataPerHalaman);
         tblModel.setData(list);
     }
 
     private void pilihData() {
         int row = tbl_jenisBarang.getSelectedRow();
 
-        jb.setKode_jenis(tbl_jenisBarang.getModel().getValueAt(row, 0).toString());
-        jb.setNama_jenis(tbl_jenisBarang.getModel().getValueAt(row, 1).toString());
+        jb.setKode_jenis(tbl_jenisBarang.getModel().getValueAt(row, 1).toString());
+        jb.setNama_jenis(tbl_jenisBarang.getModel().getValueAt(row, 2).toString());
         dispose();
     }
 }

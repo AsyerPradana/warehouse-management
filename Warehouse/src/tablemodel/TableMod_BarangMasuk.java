@@ -76,7 +76,7 @@ public class TableMod_BarangMasuk extends AbstractTableModel{
             case 0: return list.get(rowIndex).getNo_masuk();
             case 1: return list.get(rowIndex).getTgl_masuk();
             case 2: return list.get(rowIndex).getTotal_masuk();
-            case 3: return list.get(rowIndex).getMod_distributor().getId_distributor();
+            case 3: return list.get(rowIndex).getMod_supplier().getId_supplier();
             case 4: return list.get(rowIndex).getMod_pengguna().getId_pengguna();
             default: return null;
             }

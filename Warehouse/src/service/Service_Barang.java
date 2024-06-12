@@ -16,14 +16,8 @@ public interface Service_Barang {
     void perbaruiData (Model_Barang mod_bar);
     void hapusData (Model_Barang mod_bar);
     
-    Model_Barang getByid (String id);
-    
     List<Model_Barang> ambilData();
-    List<Model_Barang> ambilData2();
-    
     List<Model_Barang> pencarian(String id);
-    List<Model_Barang> pencarian2(String id);
-
+    
     String nomor();
-    String nomor2();
 }

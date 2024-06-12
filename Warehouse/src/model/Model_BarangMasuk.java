@@ -12,7 +12,7 @@ public class Model_BarangMasuk {
     private String no_masuk;
     private String tgl_masuk;
     private long total_masuk;
-    private Model_Distributor mod_distributor;
+    private Model_Supplier mod_supplier;
     private Model_Pengguna mod_pengguna;
 
     public String getNo_masuk() {
@@ -39,12 +39,12 @@ public class Model_BarangMasuk {
         this.total_masuk = total_masuk;
     }
     
-    public Model_Distributor getMod_distributor() {
-        return mod_distributor;
+    public Model_Supplier getMod_supplier() {
+        return mod_supplier;
     }
 
-    public void setMod_distributor(Model_Distributor mod_distributor) {
-        this.mod_distributor = mod_distributor;
+    public void setMod_supplier(Model_Supplier mod_supplier) {
+        this.mod_supplier = mod_supplier;
     }
 
     public Model_Pengguna getMod_pengguna() {

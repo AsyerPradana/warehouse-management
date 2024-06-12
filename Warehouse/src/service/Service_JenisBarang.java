@@ -24,4 +24,7 @@ public interface Service_JenisBarang {
     String nomor();
     
     boolean validasiNamaJenisBarang(Model_JenisBarang mod_jenbar);
+    
+    List<Model_JenisBarang> ambilData(int startIndex, int entriesPerPage);
+    int getTotalHalaman();
 }

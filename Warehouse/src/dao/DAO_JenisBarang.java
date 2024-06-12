@@ -285,5 +285,83 @@ public class DAO_JenisBarang implements Service_JenisBarang {
         }
         return false;
     }
+
+    @Override
+    public List<Model_JenisBarang> ambilData(int startIndex, int entriesPerPage) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM jenis_barang LIMIT ?, ?";
+        List<Model_JenisBarang> list = new ArrayList<>();
+
+        try {
+            st = conn.prepareStatement(sql);
+            st.setInt(1, startIndex);
+            st.setInt(2, entriesPerPage);
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                Model_JenisBarang mokat = new Model_JenisBarang();
+                mokat.setKode_jenis(rs.getString ("kode_jenis"));
+                mokat.setNama_jenis(rs.getString ("nama_jenis"));
+                list.add(mokat);
+            }
+
+            return list;
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(DAO_JenisBarang.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException ex) {
+                    java.util.logging.Logger.getLogger(DAO_JenisBarang.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    java.util.logging.Logger.getLogger(DAO_JenisBarang.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
+    
+    @Override
+    public int getTotalHalaman() {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String sql = "SELECT COUNT(*) AS total FROM jenis_barang";
+
+        try {
+            st = conn.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("total");
+            } else {
+                return 0;
+            }
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(DAO_JenisBarang.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException ex) {
+                    java.util.logging.Logger.getLogger(DAO_JenisBarang.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    java.util.logging.Logger.getLogger(DAO_JenisBarang.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
 }
 

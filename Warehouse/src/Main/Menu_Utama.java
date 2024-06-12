@@ -22,6 +22,8 @@ import view.Master_Pengguna;
 import view.Master_Barang;
 import view.Master_Report;
 import view.Master_Zona;
+import view.Master_Supplier;
+import view.Master_JenisBarang;
 
 /**
  *
@@ -124,12 +126,13 @@ public class Menu_Utama extends javax.swing.JFrame {
         pn_navbarLayout.setHorizontalGroup(
             pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_navbarLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
                 .addComponent(lb_level)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_nama)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
-                .addComponent(lb_tanggal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 440, Short.MAX_VALUE)
+                .addComponent(lb_tanggal)
+                .addGap(19, 19, 19))
         );
         pn_navbarLayout.setVerticalGroup(
             pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,12 +140,9 @@ public class Menu_Utama extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_nama)
-                    .addComponent(lb_level))
+                    .addComponent(lb_level)
+                    .addComponent(lb_tanggal))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_navbarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lb_tanggal)
-                .addContainerGap())
         );
 
         getContentPane().add(pn_navbar, java.awt.BorderLayout.PAGE_START);
@@ -256,7 +256,7 @@ public class Menu_Utama extends javax.swing.JFrame {
     private void execute(){
 //        tempat icon
         ImageIcon iconDashboard = new ImageIcon(getClass().getResource("/img/dashboard.png"));
-        ImageIcon iconProduk = new ImageIcon(getClass().getResource("/img/produk.png"));
+        ImageIcon iconBarang = new ImageIcon(getClass().getResource("/img/produk.png"));
         ImageIcon iconPengguna = new ImageIcon(getClass().getResource("/img/pengguna.png"));
         ImageIcon iconReport = new ImageIcon(getClass().getResource("/img/report.png"));
         ImageIcon iconHome = new ImageIcon(getClass().getResource("/img/home.png"));
@@ -278,9 +278,21 @@ public class Menu_Utama extends javax.swing.JFrame {
             pn_utama.repaint();
             pn_utama.revalidate();
         });
-        MenuItem subProduk = new MenuItem(null, true, iconProduk, "Barang", (ActionEvent e) -> {
+        MenuItem subBarang = new MenuItem(null, true, iconBarang, "Barang", (ActionEvent e) -> {
             pn_utama.removeAll();
             pn_utama.add(new Master_Barang());
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        });
+        MenuItem subJenBarang = new MenuItem(null, true, iconBarang, "Jenis Barang", (ActionEvent e) -> {
+            pn_utama.removeAll();
+            pn_utama.add(new Master_JenisBarang());
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        });
+        MenuItem subSupplier = new MenuItem(null, true, iconBarang, "Supplier", (ActionEvent e) -> {
+            pn_utama.removeAll();
+            pn_utama.add(new Master_Supplier());
             pn_utama.repaint();
             pn_utama.revalidate();
         });
@@ -293,7 +305,7 @@ public class Menu_Utama extends javax.swing.JFrame {
             pn_utama.revalidate();
         });
         
-        MenuItem menuDashboard = new MenuItem(iconDashboard, false, null, "Dashboard", null,subProduk);
+        MenuItem menuDashboard = new MenuItem(iconDashboard, false, null, "Dashboard", null,subBarang,subSupplier,subJenBarang);
         MenuItem menuLokasi = new MenuItem(iconLocation, false, null, "Manage Lokasi", null,subGudang,subZona);
         MenuItem menuPengguna = new MenuItem(iconPengguna, false, null, "Manage Karyawan", (ActionEvent e) -> {
             pn_utama.removeAll();
@@ -302,7 +314,6 @@ public class Menu_Utama extends javax.swing.JFrame {
             pn_utama.revalidate();
         });
         MenuItem menuReport = new MenuItem(iconReport, false, null, "Report", (ActionEvent e) -> {
-            
             pn_utama.removeAll();
             pn_utama.add(new Master_Report());
             pn_utama.repaint();
@@ -314,11 +325,11 @@ public class Menu_Utama extends javax.swing.JFrame {
             }
         });
         
-//        MenuItem menuProduk = new MenuItem(iconProduk, false, null, "Produk",null);
+//        MenuItem menuBarang = new MenuItem(iconBarang, false, null, "Barang",null);
 //        MenuItem menuLokasi = new MenuItem(iconLokasi, false, null, "Lokasi", null);
 //        MenuItem menuPengguna = new MenuItem(iconPengguna, false, null, "Pengguna", null);
         addMenu(menuHome,menuDashboard, menuLokasi, menuPengguna,menuReport, menuLogout);
-//        addMenu(menuDashboard, menuProduk, menuLokasi, menuPengguna);
+//        addMenu(menuDashboard, menuBarang, menuLokasi, menuPengguna);
 
     }
     private void addMenu(MenuItem... menu){

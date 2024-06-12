@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5784c825-db0f-4694-a1d7-29a7e489c990">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <queryString language="SQL">
+        <![CDATA[SELECT 
+    kode_jenis,
+    nama_jenis
+FROM 
+    jenis_barang;]]>
+    </queryString>
+    <field name="kode_jenis" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="nama_jenis" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="78" splitType="Stretch">
+            <staticText>
+                <reportElement x="170" y="24" width="242" height="23" uuid="3e75491c-fdf8-4f51-9c96-f96fa7244668"/>
+                <textElement>
+                    <font fontName="Arial" size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[LAPORAN DATA JENIS BARANG]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="54" splitType="Stretch">
+            <textField pattern="dd/MM/yyyy">
+                <reportElement x="494" y="15" width="61" height="20" uuid="1a52211c-1c35-4f4f-a585-29244e72429c"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="447" y="15" width="47" height="20" uuid="1cf84132-310e-4a58-9ce7-2b0dc2f628dc"/>
+                <text><![CDATA[Tanggal :]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="50" height="20" uuid="a05dbb4e-354b-45c5-930f-70d25b942e21"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Kode Jenis]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="50" y="0" width="505" height="20" uuid="c31d0558-b8d2-4f24-8508-1c873bc80550"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nama Jenis]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="50" height="20" uuid="182a054c-e876-4568-9b43-bde96432cd6d"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{kode_jenis}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="505" height="20" uuid="822c7d01-7a6b-4543-8b3e-7c935820cc51"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{nama_jenis}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>
