@@ -3,17 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/dao/DAO_Laporan.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/Main/Menu_Utama.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/view/Master_JenisBarang.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/dao/DAO_Barang.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/view/Master_Barang.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/model/Model_Barang.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/service/Service_Laporan.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/view/Master_Report.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/tablemodel/TableMod_Barang.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/service/Service_Barang.java</file>
-            <file>file:/C:/Users/hellc/OneDrive/College/Tugas%20Coding/Semester%204/FINAL%20PROJECT/PBO/GitHub/warehouse-management/Warehouse/src/Main/MenuItem.java</file>
+            <file>file:/E:/APP/git/PortableGit/warehouse-management/warehouse-management/Warehouse/src/view/Master_Report.java</file>
+            <file>file:/E:/APP/git/PortableGit/warehouse-management/warehouse-management/Warehouse/src/dao/DAO_Pengguna.java</file>
+            <file>file:/E:/APP/git/PortableGit/warehouse-management/warehouse-management/Warehouse/src/view/Data_JenisBarang.java</file>
+            <file>file:/E:/APP/git/PortableGit/warehouse-management/warehouse-management/Warehouse/src/view/Data_Gudang.java</file>
+            <file>file:/E:/APP/git/PortableGit/warehouse-management/warehouse-management/Warehouse/src/Main/Menu_Utama.java</file>
+            <file>file:/E:/APP/git/PortableGit/warehouse-management/warehouse-management/Warehouse/src/view/Master_Gudang.java</file>
+            <file>file:/E:/APP/git/PortableGit/warehouse-management/warehouse-management/Warehouse/src/dao/DAO_Zona.java</file>
         </group>
     </open-files>
 </project-private>

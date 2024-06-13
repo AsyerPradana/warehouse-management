@@ -213,7 +213,7 @@ public class DAO_Pengguna implements Service_Pengguna{
         String tgl = tanggal.format(now);
         String no = noformat.format(now);
 
-        String sql = "SELECT RIGHT(id_pengguna, 3) AS Nomor FROM pengguna WHERE id_pengguna LIKE 'DST" + no + "%'"
+        String sql = "SELECT RIGHT(id_pengguna, 3) AS Nomor FROM pengguna WHERE id_pengguna LIKE 'USR" + no + "%'"
                 + "ORDER BY id_pengguna DESC LIMIT 1 ";
          try {
             st = conn.prepareStatement(sql);
