@@ -227,16 +227,16 @@ public class DAO_Zona implements Service_Zona{
         String tgl = tanggal.format(now);
         String no = noformat.format(now);
 
-        String sql = "SELECT RIGHT(id_zona, 5) AS Nomor FROM zona ORDER BY id_zona DESC LIMIT 1 ";
+        String sql = "SELECT RIGHT(id_zona, 3) AS Nomor FROM zona ORDER BY id_zona DESC LIMIT 1 ";
          try {
             st = conn.prepareStatement(sql);
             rs = st.executeQuery();
             if(rs.next()){
                 int nomor = Integer.parseInt(rs.getString("Nomor"));
                 nomor++;
-                urutan = "Z" + String.format("%05d", nomor);
+                urutan = "Z" + String.format("%03d", nomor);
             }else{
-                urutan = "Z00001";
+                urutan = "Z001";
             }
         }catch(SQLException ex){
             Logger.getLogger(DAO_Pengguna.class.getName()).log(Level.SEVERE, null, ex);

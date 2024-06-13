@@ -76,7 +76,7 @@ public class TableMod_Supplier extends AbstractTableModel{
             case 0: return list.get(rowIndex).getId_supplier();
             case 1: return list.get(rowIndex).getNama_supplier();
             case 2: return list.get(rowIndex).getTelp_supplier();
-            case 4: return list.get(rowIndex).getAlamat_supplier();
+            case 3: return list.get(rowIndex).getAlamat_supplier();
             default: return null;
             }
         }
