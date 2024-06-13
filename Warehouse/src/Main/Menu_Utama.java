@@ -330,6 +330,11 @@ public class Menu_Utama extends javax.swing.JFrame {
 //        MenuItem menuPengguna = new MenuItem(iconPengguna, false, null, "Pengguna", null);
         addMenu(menuHome,menuDashboard, menuLokasi, menuPengguna,menuReport, menuLogout);
 //        addMenu(menuDashboard, menuBarang, menuLokasi, menuPengguna);
+        if(lb_level.getText().equals("Owner")){
+            addMenu(menuHome,menuDashboard, menuLokasi, menuPengguna,menuReport, menuLogout);
+        }else{
+            addMenu(menuHome,menuDashboard, menuLokasi, menuReport, menuLogout);
+        }
 
     }
     private void addMenu(MenuItem... menu){

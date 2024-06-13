@@ -197,16 +197,16 @@ public class DAO_Gudang implements Service_Gudang{
         PreparedStatement st = null;
         ResultSet rs = null;
         String urutan = null;
-        String sql = "SELECT RIGHT(id_gudang, 5) AS Nomor FROM gudang ORDER BY Nomor DESC LIMIT 1";
+        String sql = "SELECT RIGHT(id_gudang, 3) AS Nomor FROM gudang ORDER BY Nomor DESC LIMIT 1";
          try {
             st = conn.prepareStatement(sql);
             rs = st.executeQuery();
             if(rs.next()){
                 int nomor = Integer.parseInt(rs.getString("Nomor"));
                 nomor++;
-                urutan = String.format("G%05d", nomor);
+                urutan = String.format("G%03d", nomor);
             }else{
-                urutan = "G00001";
+                urutan = "G001";
             }
         }catch(SQLException ex){
             Logger.getLogger(DAO_Pengguna.class.getName()).log(Level.SEVERE, null, ex);

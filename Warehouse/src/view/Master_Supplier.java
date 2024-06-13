@@ -8,7 +8,6 @@ import dao.DAO_Supplier;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.Model_Supplier;
-import model.Model_Supplier;
 import service.Service_Supplier;
 import tablemodel.TableMod_Supplier;
 
@@ -63,7 +62,7 @@ public class Master_Supplier extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         t_telp_supplier = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        t_alamat_supplier = new javax.swing.JPasswordField();
+        t_alamat_supplier = new javax.swing.JTextField();
 
         jPanel1.setLayout(new java.awt.CardLayout());
 
@@ -257,7 +256,7 @@ public class Master_Supplier extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))
-                        .addGap(0, 433, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(t_alamat_supplier))
                 .addContainerGap())
         );
@@ -294,7 +293,7 @@ public class Master_Supplier extends javax.swing.JPanel {
                         .addComponent(btn_tambah1)
                         .addGap(18, 18, 18)
                         .addComponent(btn_batal1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addContainerGap(323, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tambahDataLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -324,18 +323,18 @@ public class Master_Supplier extends javax.swing.JPanel {
             .addGap(0, 573, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 0, 0)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 606, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 0, 0)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -447,7 +446,7 @@ public class Master_Supplier extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JPasswordField t_alamat_supplier;
+    private javax.swing.JTextField t_alamat_supplier;
     private javax.swing.JTextField t_cari;
     private javax.swing.JTextField t_id_supplier;
     private javax.swing.JTextField t_nama_supplier;

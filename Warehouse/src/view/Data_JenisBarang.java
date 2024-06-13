@@ -66,7 +66,9 @@ public class Data_JenisBarang extends javax.swing.JDialog {
         btn_before = new javax.swing.JButton();
         lb_halaman = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(573, 552));
+        setLocation(new java.awt.Point(300, 200));
+        setMinimumSize(new java.awt.Dimension(573, 600));
+        setPreferredSize(new java.awt.Dimension(573, 600));
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
@@ -77,10 +79,14 @@ public class Data_JenisBarang extends javax.swing.JDialog {
                 formMousePressed(evt);
             }
         });
-        getContentPane().setLayout(new java.awt.CardLayout());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel.setText("Tambah Data Pengguna");
+        jLabel.setText("Tambah Data Jenis Barang");
         jLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel);
 
@@ -112,7 +118,7 @@ public class Data_JenisBarang extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(t_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tbl_jenisBarang.setModel(new javax.swing.table.DefaultTableModel(
@@ -213,7 +219,7 @@ public class Data_JenisBarang extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(149, 149, 149)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,7 +236,16 @@ public class Data_JenisBarang extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        getContentPane().add(jPanel1, "card2");
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbl_jenisBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_jenisBarangMouseClicked
@@ -291,6 +306,10 @@ public class Data_JenisBarang extends javax.swing.JDialog {
             loadData();
         }
     }//GEN-LAST:event_btn_beforeActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
