@@ -66,22 +66,6 @@ public class DAO_Laporan implements Service_Laporan{
         }
     }
     
-    @Override
-    public void lapJenisBarang(JPanel jp){
-        try{
-            String file = "src/report/Report_DataJenisBarang.jasper";
-            HashMap parameter = new HashMap();
-            
-            JasperPrint print = JasperFillManager.fillReport(file, parameter, conn);
-            //tampil panelll
-            jp.setLayout(new BorderLayout());
-            jp.repaint();
-            jp.add(new JRViewer(print));
-            jp.revalidate();
-        }catch(Exception e){
-            JOptionPane.showConfirmDialog(null, e.getMessage());
-        }
-    }
     
     @Override
     public void lapSupplier(JPanel jp){
