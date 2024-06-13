@@ -35,6 +35,7 @@ public class Master_Report extends javax.swing.JPanel {
         pn_dataBarang.setVisible(false);
         pn_dataLokasi.setVisible(false);
         pn_dataKaryawan.setVisible(false);
+        pn_dataSupplier.setVisible(false);
     }
 
     /**
@@ -45,6 +46,7 @@ public class Master_Report extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         pn_pilihLaporan = new custom.panelCustom();
@@ -53,12 +55,15 @@ public class Master_Report extends javax.swing.JPanel {
         pn_dataBarang = new custom.panelCustom();
         jLabel3 = new javax.swing.JLabel();
         btn_printbarang = new javax.swing.JButton();
-        pn_dataLokasi = new custom.panelCustom();
-        jLabel4 = new javax.swing.JLabel();
-        btn_printLokasi = new javax.swing.JButton();
         pn_dataKaryawan = new custom.panelCustom();
         jLabel5 = new javax.swing.JLabel();
         btn_printKaryawan = new javax.swing.JButton();
+        pn_dataLokasi = new custom.panelCustom();
+        jLabel4 = new javax.swing.JLabel();
+        btn_printLokasi = new javax.swing.JButton();
+        pn_dataSupplier = new custom.panelCustom();
+        jLabel6 = new javax.swing.JLabel();
+        btn_printSupplier = new javax.swing.JButton();
         pn_tampilLaporan = new custom.panelCustom();
         panelCustom3 = new custom.panelCustom();
         jLabel2 = new javax.swing.JLabel();
@@ -73,16 +78,31 @@ public class Master_Report extends javax.swing.JPanel {
         pn_pilihLaporan.setRoundBottomRight(20);
         pn_pilihLaporan.setRoundTopLeft(20);
         pn_pilihLaporan.setRoundTopRight(20);
+        pn_pilihLaporan.setLayout(new java.awt.GridBagLayout());
 
-        cbx_laporan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "* Pilih Laporan *", "Laporan Data Barang", "Laporan Lokasi", "Laporan Karyawan" }));
+        cbx_laporan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "* Pilih Laporan *", "Laporan Data Barang", "Laporan Lokasi", "Laporan Karyawan", "Laporan Supplier" }));
         cbx_laporan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_laporanActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 81;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 6, 0, 0);
+        pn_pilihLaporan.add(cbx_laporan, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Pilih Jenis Laporan");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 67;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        pn_pilihLaporan.add(jLabel1, gridBagConstraints);
 
         pn_dataBarang.setBackground(new java.awt.Color(204, 204, 255));
         pn_dataBarang.setRoundBottomLeft(15);
@@ -115,7 +135,7 @@ public class Master_Report extends javax.swing.JPanel {
             .addGroup(pn_dataBarangLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(btn_printbarang, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn_dataBarangLayout.setVerticalGroup(
             pn_dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,52 +147,15 @@ public class Master_Report extends javax.swing.JPanel {
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
-        pn_dataLokasi.setBackground(new java.awt.Color(204, 204, 255));
-        pn_dataLokasi.setRoundBottomLeft(15);
-        pn_dataLokasi.setRoundBottomRight(15);
-        pn_dataLokasi.setRoundTopLeft(15);
-        pn_dataLokasi.setRoundTopRight(15);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Laporan Data Lokasi");
-
-        btn_printLokasi.setBackground(new java.awt.Color(0, 204, 204));
-        btn_printLokasi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_printLokasi.setForeground(new java.awt.Color(255, 255, 255));
-        btn_printLokasi.setText("Cetak");
-        btn_printLokasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_printLokasiActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pn_dataLokasiLayout = new javax.swing.GroupLayout(pn_dataLokasi);
-        pn_dataLokasi.setLayout(pn_dataLokasiLayout);
-        pn_dataLokasiLayout.setHorizontalGroup(
-            pn_dataLokasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_dataLokasiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(pn_dataLokasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pn_dataLokasiLayout.createSequentialGroup()
-                    .addGap(70, 70, 70)
-                    .addComponent(btn_printLokasi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
-        );
-        pn_dataLokasiLayout.setVerticalGroup(
-            pn_dataLokasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_dataLokasiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(104, Short.MAX_VALUE))
-            .addGroup(pn_dataLokasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pn_dataLokasiLayout.createSequentialGroup()
-                    .addGap(50, 50, 50)
-                    .addComponent(btn_printLokasi)
-                    .addContainerGap(53, Short.MAX_VALUE)))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.ipady = 44;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 10, 152, 5);
+        pn_pilihLaporan.add(pn_dataBarang, gridBagConstraints);
 
         pn_dataKaryawan.setBackground(new java.awt.Color(204, 204, 255));
         pn_dataKaryawan.setPreferredSize(new java.awt.Dimension(220, 130));
@@ -201,7 +184,7 @@ public class Master_Report extends javax.swing.JPanel {
             pn_dataKaryawanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_dataKaryawanLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pn_dataKaryawanLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
@@ -215,38 +198,129 @@ public class Master_Report extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addGap(27, 27, 27)
                 .addComponent(btn_printKaryawan)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout pn_pilihLaporanLayout = new javax.swing.GroupLayout(pn_pilihLaporan);
-        pn_pilihLaporan.setLayout(pn_pilihLaporanLayout);
-        pn_pilihLaporanLayout.setHorizontalGroup(
-            pn_pilihLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_pilihLaporanLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(pn_pilihLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                    .addComponent(cbx_laporan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pn_pilihLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(pn_dataLokasi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pn_dataBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pn_dataKaryawan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pn_pilihLaporanLayout.setVerticalGroup(
-            pn_pilihLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_pilihLaporanLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel1)
-                .addGap(10, 10, 10)
-                .addComponent(cbx_laporan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(pn_pilihLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pn_dataBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pn_dataLokasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pn_dataKaryawan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(3, 3, 3))
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 53;
+        gridBagConstraints.ipady = 44;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 10, 152, 5);
+        pn_pilihLaporan.add(pn_dataKaryawan, gridBagConstraints);
+
+        pn_dataLokasi.setBackground(new java.awt.Color(204, 204, 255));
+        pn_dataLokasi.setRoundBottomLeft(15);
+        pn_dataLokasi.setRoundBottomRight(15);
+        pn_dataLokasi.setRoundTopLeft(15);
+        pn_dataLokasi.setRoundTopRight(15);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Laporan Data Lokasi");
+
+        btn_printLokasi.setBackground(new java.awt.Color(0, 204, 204));
+        btn_printLokasi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_printLokasi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_printLokasi.setText("Cetak");
+        btn_printLokasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_printLokasiActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pn_dataLokasiLayout = new javax.swing.GroupLayout(pn_dataLokasi);
+        pn_dataLokasi.setLayout(pn_dataLokasiLayout);
+        pn_dataLokasiLayout.setHorizontalGroup(
+            pn_dataLokasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_dataLokasiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_dataLokasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_dataLokasiLayout.createSequentialGroup()
+                    .addGap(70, 70, 70)
+                    .addComponent(btn_printLokasi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(75, Short.MAX_VALUE)))
         );
+        pn_dataLokasiLayout.setVerticalGroup(
+            pn_dataLokasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_dataLokasiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pn_dataLokasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_dataLokasiLayout.createSequentialGroup()
+                    .addGap(50, 50, 50)
+                    .addComponent(btn_printLokasi)
+                    .addContainerGap(53, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.ipady = 47;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 10, 152, 5);
+        pn_pilihLaporan.add(pn_dataLokasi, gridBagConstraints);
+
+        pn_dataSupplier.setBackground(new java.awt.Color(204, 204, 255));
+        pn_dataSupplier.setPreferredSize(new java.awt.Dimension(220, 130));
+        pn_dataSupplier.setRoundBottomLeft(15);
+        pn_dataSupplier.setRoundBottomRight(15);
+        pn_dataSupplier.setRoundTopLeft(15);
+        pn_dataSupplier.setRoundTopRight(15);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Laporan Data Supplier");
+
+        btn_printSupplier.setBackground(new java.awt.Color(0, 204, 204));
+        btn_printSupplier.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_printSupplier.setForeground(new java.awt.Color(255, 255, 255));
+        btn_printSupplier.setText("Cetak");
+        btn_printSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_printSupplierActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pn_dataSupplierLayout = new javax.swing.GroupLayout(pn_dataSupplier);
+        pn_dataSupplier.setLayout(pn_dataSupplierLayout);
+        pn_dataSupplierLayout.setHorizontalGroup(
+            pn_dataSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_dataSupplierLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_dataSupplierLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(btn_printSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pn_dataSupplierLayout.setVerticalGroup(
+            pn_dataSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_dataSupplierLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(27, 27, 27)
+                .addComponent(btn_printSupplier)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.ipady = 44;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 10, 152, 5);
+        pn_pilihLaporan.add(pn_dataSupplier, gridBagConstraints);
 
         pn_tampilLaporan.setBackground(new java.awt.Color(255, 255, 255));
         pn_tampilLaporan.setRoundBottomLeft(20);
@@ -258,7 +332,7 @@ public class Master_Report extends javax.swing.JPanel {
         pn_tampilLaporan.setLayout(pn_tampilLaporanLayout);
         pn_tampilLaporanLayout.setHorizontalGroup(
             pn_tampilLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 433, Short.MAX_VALUE)
         );
         pn_tampilLaporanLayout.setVerticalGroup(
             pn_tampilLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,25 +354,25 @@ public class Master_Report extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelCustom3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pn_pilihLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelCustom3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(pn_pilihLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pn_tampilLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(pn_tampilLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(panelCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pn_tampilLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pn_pilihLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(pn_pilihLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+                    .addComponent(pn_tampilLaporan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         add(jPanel1, "card2");
@@ -314,18 +388,29 @@ public class Master_Report extends javax.swing.JPanel {
             pn_dataBarang.setVisible(false);
             pn_dataKaryawan.setVisible(false);
             pn_dataLokasi.setVisible(false);
+            pn_dataSupplier.setVisible(false);
         }else if(cbx_laporan.getSelectedItem()=="Laporan Data Barang"){
             pn_dataBarang.setVisible(true);
             pn_dataKaryawan.setVisible(false);
             pn_dataLokasi.setVisible(false);
+            pn_dataSupplier.setVisible(false);
         }else if(cbx_laporan.getSelectedItem()=="Laporan Lokasi"){
             pn_dataBarang.setVisible(false);
             pn_dataKaryawan.setVisible(false);
             pn_dataLokasi.setVisible(true);
+                        pn_dataSupplier.setVisible(false);
+
         }else if(cbx_laporan.getSelectedItem()=="Laporan Karyawan"){
             pn_dataBarang.setVisible(false);
             pn_dataKaryawan.setVisible(true);
             pn_dataLokasi.setVisible(false);
+                        pn_dataSupplier.setVisible(false);
+
+        }else if(cbx_laporan.getSelectedItem()=="Laporan Supplier"){
+            pn_dataBarang.setVisible(false);
+            pn_dataKaryawan.setVisible(false);
+            pn_dataLokasi.setVisible(false);
+                        pn_dataSupplier.setVisible(true);
         }
 
     }//GEN-LAST:event_cbx_laporanActionPerformed
@@ -348,10 +433,17 @@ public class Master_Report extends javax.swing.JPanel {
         servis_lap.lapKaryawan(pn_tampilLaporan);
     }//GEN-LAST:event_btn_printKaryawanActionPerformed
 
+    private void btn_printSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_printSupplierActionPerformed
+        // TODO add your handling code here:
+        pn_tampilLaporan.removeAll();
+        servis_lap.lapSupplier(pn_tampilLaporan);
+    }//GEN-LAST:event_btn_printSupplierActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_printKaryawan;
     private javax.swing.JButton btn_printLokasi;
+    private javax.swing.JButton btn_printSupplier;
     private javax.swing.JButton btn_printbarang;
     private javax.swing.JComboBox<String> cbx_laporan;
     private javax.swing.JLabel jLabel1;
@@ -359,11 +451,13 @@ public class Master_Report extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private custom.panelCustom panelCustom3;
     private custom.panelCustom pn_dataBarang;
     private custom.panelCustom pn_dataKaryawan;
     private custom.panelCustom pn_dataLokasi;
+    private custom.panelCustom pn_dataSupplier;
     private custom.panelCustom pn_pilihLaporan;
     private custom.panelCustom pn_tampilLaporan;
     // End of variables declaration//GEN-END:variables

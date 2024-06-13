@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 public interface Service_Laporan {
 //    void connectToDatabase();
     void lapDataBarang(JPanel jp);
-    void lapJenisBarang(JPanel jp);
+//    void lapJenisBarang(JPanel jp);
     void lapSupplier(JPanel jp);
     void lapLokasi(JPanel jp);
     void lapKaryawan(JPanel jp);
