@@ -337,6 +337,7 @@ public class Master_JenisBarang extends javax.swing.JPanel {
 
     private void btn_tambah1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambah1ActionPerformed
         // TODO add your handling code here:
+        t_kode.setEnabled(false);
         if(btn_tambah1.getText().equals("TAMBAH")){
             btn_tambah1.setText("SIMPAN");
             t_kode.setText(servis.nomor());
@@ -447,15 +448,15 @@ private void dataTabel(){
     }
 
     private void simpanData() {
-        String kode = t_kode.getText();
-        String nama = t_nama.getText();
-        
-        Model_JenisBarang jb = new Model_JenisBarang();
-        jb.setKode_jenis(kode);
-        jb.setNama_jenis(nama);
-        
-        if(servis.validasiNamaJenisBarang(jb)==true)
-        {
+//        String kode = t_kode.getText();
+//        String nama = t_nama.getText();
+//        
+//        Model_JenisBarang jb = new Model_JenisBarang();
+//        jb.setKode_jenis(kode);
+//        jb.setNama_jenis(nama);
+//        
+//        if(servis.validasiNamaJenisBarang(jb)==true)
+//        {
             if(validasiInput()==true){
                 String kode_jenis   = t_kode.getText();
                 String nama_jenis = t_nama.getText();
@@ -464,33 +465,34 @@ private void dataTabel(){
                 jbg.setKode_jenis(kode_jenis);
                 jbg.setNama_jenis(nama_jenis);
 
-                servis.tambahData(jb);
-                tblModel.tambahData(jb);
+                servis.tambahData(jbg);
+                tblModel.tambahData(jbg);
                 tampilPanel();
                 loadData();
                 resetForm();
                 btn_tambah.setText("TAMBAH");
             }
-        }else
-        {
-            t_nama.requestFocus();
-        }
-    }
+            }
+//        }else
+//        {
+//            t_nama.requestFocus();
+//        }
+//    }
 
     private void perbaruiData() {
         int index = tbl_data.getSelectedRow();
         if (index!=-1) {
             Model_JenisBarang mobar = tblModel.getData(tbl_data.convertRowIndexToModel(index));
             
-            String kode = t_kode.getText();
-            String nama = t_nama.getText();
-            
-            Model_JenisBarang jb = new Model_JenisBarang();
-            jb.setKode_jenis(kode);
-            jb.setNama_jenis(nama);
-            
-            if(servis.validasiNamaJenisBarang(jb)==true)
-            {
+//            String kode = t_kode.getText();
+//            String nama = t_nama.getText();
+//            
+//            Model_JenisBarang jb = new Model_JenisBarang();
+//            jb.setKode_jenis(kode);
+//            jb.setNama_jenis(nama);
+//            
+//            if(servis.validasiNamaJenisBarang(jb)==true)
+//            {
                 if(validasiInput()==true){
                     String kode_jenis  = t_kode.getText();
                     String nama_jenis   = t_nama.getText();
@@ -505,13 +507,15 @@ private void dataTabel(){
                     loadData();
                     resetForm();
                     tampilPanel();
+                    btn_tambah.setText("TAMBAH");
 
-                }}
-            else
-            {
-                t_nama.requestFocus();
-            }   
+                }
         }
+//            else
+//            {
+//                t_nama.requestFocus();
+//            }   
+//        }
     }
 
     private boolean validasiInput() {

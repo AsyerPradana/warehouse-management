@@ -507,8 +507,8 @@ private void simpanData() {
             Model_Gudang mod_pen = tblModel.getData(tbl_data.convertRowIndexToModel(index));
             if (validasiInput() == true) {
             String ID = t_id.getText();
-            String Nama_gudang = t_lokasiGudang.getText();
-            String Lokasi_gudang = t_namaGudang.getText();
+            String Nama_gudang = t_namaGudang.getText();
+            String Lokasi_gudang = t_lokasiGudang.getText();
 
             Model_Gudang model = new Model_Gudang();
             
