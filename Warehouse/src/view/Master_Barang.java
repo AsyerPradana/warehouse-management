@@ -643,32 +643,33 @@ private void simpanData() {
                 Model_Barang mobar = tblModel.getData(tbl_barang.convertRowIndexToModel(index));
 
                 if (validasiInput() == true) {
-                    String kode_barang = t_kodeBarang.getText();
-                    String kode_jenis = t_kodeJenisBarang.getText();
-                    // String nama_jenis = t_namaJenisBarang.getText();
-                    String nama_barang = t_namaBarang.getText();
-                    String satuan = cbx_satuan.getSelectedItem().toString();
-                    Long harga = Long.parseLong(t_harga.getText());
-                    int stok = Integer.parseInt(t_stok.getText());
+                    String Kode_barang = t_kodeBarang.getText();
+                    String Kode_jenis = t_kodeJenisBarang.getText();
+                    String Nama_jenis = t_namaJenisBarang.getText();
+                    String Nama_barang = t_namaBarang.getText();
+                    String Satuan = cbx_satuan.getSelectedItem().toString();
+                    Long Harga = Long.valueOf(t_harga.getText());
+                    int Stok = Integer.parseInt(t_stok.getText());
 
                     Model_Barang brg = new Model_Barang();
                     Model_JenisBarang jbr = new Model_JenisBarang();
 
-                    jbr.setKode_jenis(kode_jenis);
-                    // jbr.setNama_jenis(nama_jenis);
-                    brg.setKode_barang(kode_barang);
-                    brg.setNama_barang(nama_barang);
-                    brg.setSatuan(satuan);
-                    brg.setHarga(harga);
-                    brg.setStok(stok);
+                    jbr.setKode_jenis(Kode_jenis);
+                    jbr.setNama_jenis(Nama_jenis);
+                    brg.setKode_barang(Kode_barang);
+                    brg.setNama_barang(Nama_barang);
+                    brg.setSatuan(Satuan);
+                    brg.setHarga(Harga);
+                    brg.setStok(Stok);
 
                     brg.setJns_Barang(jbr);
 
-                    servis.perbaruiData(mobar);
+                    servis.perbaruiData(brg);
                     tblModel.perbaruiData(index, brg);
+                    tampilPanel();
                     loadData();
                     resetForm();
-                    tampilPanel();
+                    btn_tambah.setText("TAMBAH");
                 }
             }
     }

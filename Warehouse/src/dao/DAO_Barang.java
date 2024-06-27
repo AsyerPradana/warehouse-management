@@ -62,10 +62,10 @@ public class DAO_Barang implements Service_Barang{
     @Override
     public void perbaruiData(Model_Barang mod_bar) {
         PreparedStatement st = null;
-        String sql = "UPDATE barang SET  kode_jenis=?, nama_barang=?, satuan=?, harga=?, stok=? WHERE kode_barang='"+mod_bar.getKode_barang()+"'";
+        String sql = "UPDATE barang SET  kode_jenis=?, nama_barang=?, satuan=?, harga=?, stok=? "
+                + "WHERE kode_barang='"+mod_bar.getKode_barang()+"'";
         try{
             st = conn.prepareStatement(sql);
-            
             st.setString(1, mod_bar.getJns_Barang().getKode_jenis());
             st.setString(2, mod_bar.getNama_barang());
             st.setString(3, mod_bar.getSatuan());
@@ -218,12 +218,7 @@ public class DAO_Barang implements Service_Barang{
         SimpleDateFormat noformat = new SimpleDateFormat("yyMM");
         String tgl = tanggal.format(now);
         String no = noformat.format(now);
-
-        String sql = "SELECT RIGHT(kode_barang, 3) AS Nomor " +
-                     "FROM barang " +
-                     "WHERE kode_barang LIKE 'B" + no + "%' " +
-                     "ORDER BY kode_barang DESC " +
-                     "LIMIT 1";
+        String sql = "SELECT RIGHT(kode_barang, 3) AS Nomor FROM barang ORDER BY kode_barang DESC LIMIT 1";
 
         try {
             st = conn.prepareStatement(sql);
@@ -232,9 +227,9 @@ public class DAO_Barang implements Service_Barang{
             if (rs.next()) {
                 int nomor = Integer.parseInt(rs.getString("Nomor"));
                 nomor++;
-                urutan = "B" + no + String.format("%03d", nomor);
+                urutan = "B" + String.format("%03d", nomor);
             } else {
-                urutan = "B" + no + "001";
+                urutan = "B001";
             }
 
         } catch (SQLException ex) {

@@ -222,17 +222,16 @@ public class DAO_JenisBarang implements Service_JenisBarang {
         String tgl = tanggal.format(now);
         String no = noformat.format(now);
 
-        String sql = "SELECT RIGHT(kode_jenis, 3) AS Nomor FROM jenis_barang WHERE kode_jenis LIKE 'JB" + no + "%'"
-                + "ORDER BY kode_jenis DESC LIMIT 1";
+        String sql = "SELECT RIGHT(kode_jenis, 3) AS Nomor FROM jenis_barang ORDER BY kode_jenis DESC LIMIT 1";
         try {
             st = conn.prepareStatement(sql);
             rs = st.executeQuery();
             if(rs.next()){
                 int nomor = Integer.parseInt(rs.getString("Nomor"));
                 nomor++;
-                urutan = "JB" + no + String.format("%03d", nomor);
+                urutan = "JB" + String.format("%03d", nomor);
             } else {
-                urutan = "JB" + no + "001";
+                urutan = "JB" + "001";
             }
         } catch(SQLException ex) {
             Logger.getLogger(DAO_JenisBarang.class.getName()).log(Level.SEVERE, null, ex);

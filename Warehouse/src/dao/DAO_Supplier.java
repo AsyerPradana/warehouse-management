@@ -208,8 +208,7 @@ public class DAO_Supplier implements Service_Supplier{
         SimpleDateFormat noformat = new SimpleDateFormat("yyMM");
         String tgl = tanggal.format(now);
         String no = noformat.format(now);
-
-        String sql = "SELECT RIGHT(id_supplier, 3) AS Nomor FROM supplier WHERE id_supplier LIKE 'DST" + no + "%' ORDER BY id_supplier DESC LIMIT 1";
+        String sql = "SELECT RIGHT(id_supplier, 3) AS Nomor FROM supplier ORDER BY id_supplier DESC LIMIT 1";
 
         try {
             st = connection.prepareStatement(sql);
@@ -218,9 +217,9 @@ public class DAO_Supplier implements Service_Supplier{
             if (rs.next()) {
                 int nomor = Integer.parseInt(rs.getString("Nomor"));
                 nomor++;
-                urutan = "DST" + no + String.format("%03d", nomor);
+                urutan = "D" + String.format("%03d", nomor);
             } else {
-                urutan = "DST" + no + "001";
+                urutan = "D001";
             }
 
         } catch (SQLException ex) {
